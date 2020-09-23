@@ -1,20 +1,20 @@
 {
-  "name": "electron-quick-start",
+  "name": "Student_Portal",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "an App to write Test and complete aassignment for students",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/mynamasp/student_portal",
   "keywords": [
     "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
+    "Student",
+    "Potral",
+    "Python",
+    "MySQL"
   ],
-  "author": "GitHub",
+  "author": "S.Prasanna",
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^10.1.2"
