@@ -47,9 +47,12 @@ function login(){
         if(message === "true"){
             ipcRenderer.send('open-home-window', 'home');
             console.log("ipc message sent");
+            document.getElementById("userID").value = ""
+            document.getElementById("password").value = ""
         }
         else{
-
+            userID.addClass('alert-validate');
+            pass.addClass('alert-validate');
         }
        
       })
