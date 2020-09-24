@@ -1,19 +1,124 @@
-<!DOCTYPE html>
 <html>
-  <head>
+<head>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="style.css" />
     <meta charset="UTF-8">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Hello World!</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
 
-    <!-- You can also require other files to run in this process -->
-    <script src="./renderer.js"></script>
-  </body>
+  	<!-- Loading third party fonts -->
+		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
+
+
+
+    <script src="login.js"></script>
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+
+  </head>
+  
+  <body onload="checkLogin()">
+    <header id="titlebar">
+      <div id="drag-region">
+
+        <div id="window-title">
+         
+        </div>
+
+        <div id="window-controls">
+
+          <div class="winbutton" id="min-button">
+            <img class="icon" srcset="icons/min-w-10.png 1x, icons/min-w-12.png 1.25x, icons/min-w-15.png 1.5x, icons/min-w-15.png 1.75x, icons/min-w-20.png 2x, icons/min-w-20.png 2.25x, icons/min-w-24.png 2.5x, icons/min-w-30.png 3x, icons/min-w-30.png 3.5x" draggable="false" />
+          </div>
+          <div class="winbutton" id="max-button">
+            <img class="icon" srcset="icons/max-w-10.png 1x, icons/max-w-12.png 1.25x, icons/max-w-15.png 1.5x, icons/max-w-15.png 1.75x, icons/max-w-20.png 2x, icons/max-w-20.png 2.25x, icons/max-w-24.png 2.5x, icons/max-w-30.png 3x, icons/max-w-30.png 3.5x" draggable="false" />
+          </div>
+          <div class="winbutton" id="restore-button">
+            <img class="icon" srcset="icons/restore-w-10.png 1x, icons/restore-w-12.png 1.25x, icons/restore-w-15.png 1.5x, icons/restore-w-15.png 1.75x, icons/restore-w-20.png 2x, icons/restore-w-20.png 2.25x, icons/restore-w-24.png 2.5x, icons/restore-w-30.png 3x, icons/restore-w-30.png 3.5x" draggable="false" />
+          </div>
+          <div class="winbutton" id="close-button">
+            <img class="icon" srcset="icons/close-w-10.png 1x, icons/close-w-12.png 1.25x, icons/close-w-15.png 1.5x, icons/close-w-15.png 1.75x, icons/close-w-20.png 2x, icons/close-w-20.png 2.25x, icons/close-w-24.png 2.5x, icons/close-w-30.png 3x, icons/close-w-30.png 3.5x" draggable="false" />
+          </div>
+
+        </div>
+      </div>
+    </header>
+    
+    <div class="limiter">
+      <div class="container-login100">
+        <div class="wrap-login100">
+          <div class="login100-pic js-tilt" data-tilt>
+            <img src="images/img-01.png" alt="IMG">
+          </div>
+  
+          <div class="login100-form validate-form">
+            <span class="login100-form-title">
+              Student Login
+            </span>
+  
+            <div class="wrap-input100 validate-input" data-validate = "Valid ID is required">
+              <input id = "userID" class="input100" type="text" name="id" placeholder="Student ID">
+              <span class="focus-input100"></span>
+              <span class="symbol-input100">
+                <i class="fa fa-id-card" aria-hidden="true"></i>
+              </span>
+            </div>
+  
+            <div class="wrap-input100 validate-input" data-validate = "Password is required">
+              <input id="password" class="input100" type="password" name="pass" placeholder="Password">
+              <span class="focus-input100"></span>
+              <span class="symbol-input100">
+                <i class="fa fa-lock" aria-hidden="true"></i>
+              </span>
+            </div>
+            
+            <div class="container-login100-form-btn">
+              <button class="login100-form-btn" onclick="login()">
+                Login
+              </button>
+            </div>
+  
+            <div class="text-center p-t-12">
+              <span class="txt1">
+                
+              </span>
+              <a class="txt2" href="#">
+              </a>
+            </div>
+  
+            <div class="text-center p-t-136">
+              <a class="txt2" href="#">
+               
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+	  <!--===============================================================================================-->	
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+      <script src="js/main.js"></script>
+ 
+       <script src="vendor/bootstrap/js/popper.js"></script>
+       <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+       <script>
+        require('./renderer.js')
+        
+     </script>
+</body>
 </html>

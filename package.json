@@ -1,5 +1,5 @@
 {
-  "name": "Student_Portal",
+  "name": "student_portal",
   "version": "1.0.0",
   "description": "an App to write Test and complete aassignment for students",
   "main": "main.js",
@@ -18,5 +18,8 @@
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^10.1.2"
+  },
+  "dependencies": {
+    "python-shell": "^2.0.2"
   }
 }
