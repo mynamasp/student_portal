@@ -5,33 +5,13 @@ var path = require("path")
 
 
 
-function checkLogin(){
-    
-    var options = {
-        scriptPath : path.join(__dirname, 'python/'),
-        args : ["ifSignedIn"]
-      }
-    
-    let pyshell = new PythonShell('main.py', options);
 
-    pyshell.on('message', function(message) {
-
-        if(message === "true"){
-            ipcRenderer.send('open-home-window', 'home');
-            console.log("ipc message sent");
-        }
-        else{
-            login();
-        }
-       
-      })
-      
-
-}
 
 function login(){
     let userID = document.getElementById("userID").value;
     let pass = document.getElementById("password").value;
+    let userIDc = document.getElementById("userID").classList;
+    let passc = document.getElementById("password").classList;
     data_out = "logIn," + userID + "," + pass;
     console.log(data_out);
 
@@ -49,10 +29,35 @@ function login(){
             console.log("ipc message sent");
             document.getElementById("userID").value = ""
             document.getElementById("password").value = ""
+            console.log("loginedin")
         }
         else{
-            userID.addClass('alert-validate');
-            pass.addClass('alert-validate');
+           
+            console.log(message)
+        }
+       
+      })
+}
+function checkLogin(){
+    console.log("checking");
+
+    var options = {
+        scriptPath : path.join(__dirname, 'python/'),
+        args : ["isSignedIn"]
+      }
+    
+    let pyshell = new PythonShell('main.py', options);
+
+    pyshell.on('message', function(message) {
+
+        if(message === "true"){
+            ipcRenderer.send('open-home-window', 'home');
+            console.log("ipc message sent");
+            console.log("Logedin")
+        }
+        else{
+           
+            console.log("error")
         }
        
       })

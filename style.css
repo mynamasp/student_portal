@@ -1,1 +1,296 @@
+#welcome-msg{
+    color: rgb(255, 255, 255);
+    -webkit-animation: fadein 2s;
+    animation: fadein 2s;
+    font-size: 35px;
+}
 
+.flex-container {
+    display: flex;
+    height: 90%;
+
+  }
+.flex-container > div {
+    width: 100%;
+    margin: 10px;
+    text-align: center;
+  
+}
+
+.card {
+  box-shadow: 0 10px 12px 0 rgba(0,0,0,0.2);
+  background-color: rgba(250, 250, 250);
+  transition: 0.3s;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  
+}
+.chemistry-card {
+  width: 100%;
+  height: 75%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background-color: rgb(81, 156, 6);
+}
+.physics-card {
+  width: 100%;
+  height: 75%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background-color: rgb(179, 111, 48);
+}
+.maths-card {
+  width: 100%;
+  height: 75%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background-color: rgb(255, 46, 203);
+}
+.biology-card {
+  width: 100%;
+  height: 75%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background-color: rgb(57, 143, 255);
+}
+
+
+
+.card2 {
+  box-shadow: 0 6px 12px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 95%;
+  margin-left: 40px;
+  border-radius: 10px;
+  background-color: rgba(250, 250, 250, 0.856);
+  margin-top: 50px;
+  height: 220px;
+  opacity: 0.1;
+}
+
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.fade-in {
+  opacity:0;  /* make things invisible upon start */
+  -webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+  -moz-animation:fadeIn ease-in 1;
+  animation:fadeIn ease-in 1;
+
+  -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+
+  -webkit-animation-duration:1s;
+  -moz-animation-duration:1s;
+  animation-duration:1s;
+}
+
+.fade-in.one {
+  -webkit-animation-delay: 0.7s;
+  -moz-animation-delay: 0.7s;
+  animation-delay: 0.7s;
+}
+
+.fade-in.two {
+  -webkit-animation-delay: 1.2s;
+  -moz-animation-delay:1.2s;
+  animation-delay: 1.2s;
+}
+
+.fade-in.three {
+  -webkit-animation-delay: 1.8s;
+  -moz-animation-delay: 1.8s;
+  animation-delay: 1.8s;
+}
+
+
+
+
+.card:hover {
+    box-shadow: 0 16px 8px 0 rgba(0,0,0,0.2);
+}
+  
+.container {
+    padding: 8px 25px;
+}
+
+.countdown-container {
+    color: #333;
+    margin: 0 auto;
+    padding: 0.5rem;
+    text-align: center;
+  }
+  
+  
+  .countdown-title {
+    font-weight: bold;
+    margin-bottom: -15px;
+    color: #4e4e4e;
+    margin-top: -8px;
+    
+  }
+  
+  .countdown-li {
+    display: inline-block;
+    color: #747272;
+    font-size: 1.5em;
+    list-style-type: none;
+    font-weight: bold;
+    padding: 1em;
+    text-transform: uppercase;
+    
+  }
+  
+  .countdown-time {
+    display: block;
+    font-size: 4.5rem;
+  }
+  
+  @media all and (max-width: 1490px) {
+    .countdown-title {
+      font-size: 1.3rem;
+      margin-top: 10px;
+    }
+    
+    .countdown-li {
+      font-size: 1.2rem;
+    }
+    
+    .countdown-time {
+      font-size: 3rem;
+    }
+  }
+
+  .due-sub{
+    color: white;
+    font-size: 1.5rem;
+    padding-top: 35px;
+}  
+
+
+  .due-topic{
+    color: white;
+      font-size: 1rem;
+      margin-top:5px;
+  }
+  .due-type{
+    color: white;
+    font-size: 1rem;
+    margin-top: -3.5px;
+  }
+  .due-day{
+    color: rgb(83, 83, 83);
+      font-size: 1.1rem;
+      font-weight: bold;
+     
+  }
+
+  .anouncement{
+    color: rgb(83, 83, 83);
+    font-size: 1em;
+    
+  }
+
+  .an-line{
+    border-left: 2px solid rgb(194, 194, 194);
+  height: 180px;
+  }
+  div.scrolling-limit{
+    width: 100%;
+    height: 80px;
+  
+  
+    overflow:hidden;
+      font-size: 50px;
+  
+    white-space:nowrap;
+    
+  }
+  
+  div.scrolling{
+    width: 50%;
+    
+    position: relative;
+    -webkit-animation: scroll 20s infinite linear;;
+    -moz-animation: scroll 20s infinite linear;
+    -o-animation: scroll 20s infinite linear;
+    animation: scroll 20s infinite linear;
+  }
+  
+  @keyframes scroll{
+      0%   {left: 500px;}
+      100% {left: -950px;}
+  }
+  @-webkit-keyframes scroll{
+      0%   {left: 500px;}
+      100% {left: -950px;}
+  }
+
+  #hid-card{
+    display: none;
+  }
+  @media all and (min-width: 1600px) {
+    #hid-card{
+      display: block;
+    }
+
+  }
+  
+  .message-container{
+    width: fit-content;
+    margin:20px auto;
+    align-self: center;
+    
+    height:100px;
+    
+    overflow:hidden;
+  }
+  .message-ul{
+    list-style:none;
+    position:relative;
+  }
+  .message-li{
+    height:100px;
+    
+     text-align:center;
+    
+  }
+  .message-h2{
+    color:grey;
+    padding-top:10px;
+  }
+  .message-p{
+    text-align:left;
+    padding:10px;
+    color:grey;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+   }
+   
+.item{
+  background: white;    
+  text-align: center;
+  height: 300px !important;
+}
+
+.carousel{
+  margin-top: 20px;
+}
+
+.bs-example{
+margin: 20px;
+}
+
+.carousel.carousel-fade .item {
+opacity:0;
+filter: alpha(opacity=0); /* ie fix */
+}
+
+.carousel.carousel-fade .active.item {
+  opacity:1;
+  filter: alpha(opacity=100); /* ie fix */
+}

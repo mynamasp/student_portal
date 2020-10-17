@@ -8,6 +8,16 @@ body {
   font-family: "Segoe UI", sans-serif;
   background: #353535;
   color: #FFF;
+  margin: 0px;
+  font-family: -apple-system, 
+  BlinkMacSystemFont, 
+  "Segoe UI", 
+  Roboto, 
+  Oxygen-Sans, 
+  Ubuntu, 
+  Cantarell, 
+  "Helvetica Neue", 
+  sans-serif;
 }
 
 h1 {
@@ -29,11 +39,16 @@ p {
   position: fixed;
   height: 32px;
   width: calc(100% - 2px);
+  z-index: 3;
+
+  
 }
 
 .maximized #titlebar {
   width: 100%;
   padding: 0;
+  z-index: 3;
+
 }
 
 #main {
@@ -41,25 +56,35 @@ p {
   margin-top: 32px;
   padding: 20px;
   overflow-y: auto;
+  z-index: 3;
+
 }
 
 #titlebar {
   padding: 4px;
+  z-index: 3;
+
 }
 
 #titlebar #drag-region {
   width: 100%;
   height: 100%;
   -webkit-app-region: drag;
+  z-index: 3;
+
 }
 
 #titlebar {
   color: #FFF;
+  z-index: 3;
+
 }
 
 #titlebar #drag-region {
   display: grid;
   grid-template-columns: auto 138px;
+  z-index: 3;
+
 }
 
 #window-title {
@@ -70,10 +95,14 @@ p {
   overflow: hidden;
   font-family: "Segoe UI", sans-serif;
   font-size: 12px;
+  z-index: 3;
+
 }
 
 .maximized #window-title {
   margin-left: 12px;
+  z-index: 3;
+
 }
 
 #window-title span {
@@ -81,6 +110,8 @@ p {
   text-overflow: ellipsis;
   white-space: nowrap;
   line-height: 1.5;
+  z-index: 3;
+
 }
 
 #window-controls {
@@ -90,10 +121,14 @@ p {
   top: 0;
   right: 0;
   height: 100%;
+  z-index: 3;
+
 }
 
 #window-controls {
   -webkit-app-region: no-drag;
+  z-index: 3;
+
 }
 
 #window-controls .winbutton {
@@ -103,6 +138,8 @@ p {
   align-items: center;
   width: 100%;
   height: 100%;
+  z-index: 3;
+
 }
 
 @media (-webkit-device-pixel-ratio: 1.5), (device-pixel-ratio: 1.5),
@@ -116,47 +153,72 @@ p {
 
 #window-controls .winbutton {
   user-select: none;
+  z-index: 3;
+
 }
 
 #window-controls .winbutton:hover {
   background: rgba(255,255,255,0.1);
+  z-index: 3;
+
 }
 
 #window-controls .winbutton:active {
   background: rgba(255,255,255,0.2);
+  z-index: 3;
+
 }
 
 #close-button:hover {
   background: #E81123 !important;
+  z-index: 3;
+
 }
 
 #close-button:active {
   background: #F1707A !important;
+  z-index: 3;
+
 }
 #close-button:active .icon {
   filter: invert(1);
+  z-index: 3;
+
 }
+
 
 #min-button {
   grid-column: 1;
+  z-index: 3;
+
 }
 #max-button, #restore-button {
   grid-column: 2;
+  z-index: 3;
+
 }
 #close-button {
   grid-column: 3;
+  z-index: 3;
+
 }
 
 #restore-button {
   display: none !important;
+  z-index: 3;
+
 }
 
 .maximized #restore-button {
   display: flex !important;
+  z-index: 3;
+
 }
 
 .maximized #max-button {
   display: none;
+  z-index: 3;
+
 }
 ::-webkit-scrollbar {
   width: 10px;
@@ -175,4 +237,18 @@ p {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #035f83; 
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: linear-gradient(45deg, rgba(131,58,180,1) 0%,rgba(255,79,56,1) 33%, rgba(255,158,0,1) 59%, rgba(255,144,75,1) 69%, rgba(92,5,167,1) 100%);
+  background-size: 400% 100%;
+  animation: gradient 10s linear infinite;
+  animation-direction: alternate;
+}
+@keyframes gradient {
+  0% {background-position: 0%}
+  100% {background-position: 100%}
 }

@@ -32,11 +32,14 @@ function handleWindowControls() {
     document.getElementById('max-button').addEventListener("click", event => {
         win.maximize();
         document.body.classList.add('maximized');
+        win.setResizable(false)
+
     });
 
     document.getElementById('restore-button').addEventListener("click", event => {
         win.unmaximize();
         document.body.classList.remove('maximized');
+        win.setResizable(true)
     });
 
     document.getElementById('close-button').addEventListener("click", event => {

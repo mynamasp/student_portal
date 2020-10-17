@@ -23,21 +23,18 @@ elif input_data[0] == "logIn":
     for x in mycursor:
         value.append(x)
 
-
-
-
-
-
     if len(value) > 0:
         print("true")
         d = "SELECT * FROM username WHERE user= '"+userID+"'"
-
         df = pd.read_sql(d, db)
         df.to_csv('details.csv')
 
-
-
     else:
-            print("false")
+        print("false")
+
+elif input_data[0] == "getHomeInfo":
+    print("homeinfo")
+
+
 else:
-    print(input_data[0])
+    print("python out: "+input_data[0])

@@ -1,7 +1,6 @@
 <html>
 <head>
     <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="style.css" />
     <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -18,7 +17,9 @@
 	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">	
+  <link rel="stylesheet" type="text/css" href="test.css">
+  
 
   	<!-- Loading third party fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
@@ -30,7 +31,8 @@
 
   </head>
   
-  <body onload="checkLogin()">
+  <body style="background-color: #424242
+  ;">
     <header id="titlebar">
       <div id="drag-region">
 
@@ -57,61 +59,82 @@
       </div>
     </header>
     
-    <div class="limiter">
-      <div class="container-login100">
-        <div class="wrap-login100">
-          <div class="login100-pic js-tilt" data-tilt>
-            <img src="images/img-01.png" alt="IMG">
-          </div>
-          <div class="vl"></div>
-
-          <div class="login100-form validate-form">
-            <span class="login100-form-title" style="color: rgb(90, 90, 90);">
-              Student Login
-            </span>
-  
-            <div class="wrap-input100 validate-input" data-validate = "Valid ID is required">
-              <input id = "userID" class="input100" type="text" name="id" placeholder="Student ID">
-              <span class="focus-input100"></span>
-              <span class="symbol-input100">
-                <i class="fa fa-id-card" aria-hidden="true"></i>
-              </span>
-            </div>
-  
-            <div class="wrap-input100 validate-input" data-validate = "Password is required">
-              <input id="password" class="input100" type="password" name="pass" placeholder="Password">
-              <span class="focus-input100"></span>
-              <span class="symbol-input100">
-                <i class="fa fa-lock" aria-hidden="true"></i>
-              </span>
-            </div>
-            
-            <div class="container-login100-form-btn">
-              
-              <button class="login100-form-btn" onclick="login()">
-                Login
-              </button>
-             
-            </div>
-  
-            <div class="text-center p-t-12">
-              <span class="txt1">
-                
-              </span>
-              <a class="txt2" href="#">
-              </a>
-            </div>
-  
-            <div class="text-center p-t-136">
-              <a class="txt2" href="#">
-               
-              </a>
-            </div>
+    <h1 id="test-subject-name" class="subject-name">Chemistry Test</h1>
+    <ul class="live">
+      <li>I have never seen anything like this</li>
+      <li>This is most certainly cool, and it can also work on long texts inside the list-item elements, which spans over multiple lines</li>
+      <li>Un-ordered lists are fun to play with</li>
+      <li>Firefox sure does animate this effect nicely</li>
+      <li>This is so simple</li>
+    </ul>
+    <div class="mark-card">
+      <div class="flex-container">
+        <div>
+      <h1 style="padding-top:15px;">Marks: 85</h1>
+    </div>
+    <div>
+      <h1 style="padding-top: 15px;">Questions: 85</h1>
+    </div>
+    <div>
+      <h1 style="padding-top: 15px;">Duration: 3hrs</h1>
+    </div>
+    </div>
+    </div>
+    <div class="buttons">
+      <button id="start-btn" class="blob-btn" onclick="changebutton()">
+       Start Test
+        <span class="blob-btn__inner">
+          <span class="blob-btn__blobs">
+            <span id="blob1" class="blob-btn__blob"></span>
+            <span id="blob2" class="blob-btn__blob"></span>
+            <span  id="blob3" class="blob-btn__blob"></span>
+            <span id="blob4" class="blob-btn__blob"></span>
+          </span>
+        </span>
+      </button>
+      <br/>
+    <div class="question-card">
+      <div class="grid-container">
+        <div class="question">1</div>
+        <div>
+          <div class="inputGroup">
+            <input id="radio1" name="radio" type="radio"/>
+            <label for="radio1">Yes</label>
           </div>
         </div>
+        <div>
+          <div class="inputGroup">
+            <input id="radio2" name="radio" type="radio"/>
+            <label for="radio2">No</label>
+          </div>
+        </div>  
+        <div>
+          <div class="inputGroup">
+            <input id="radio3" name="radio" type="radio"/>
+            <label for="radio3">No</label>
+          </div>
+        </div>
+        <div><div class="inputGroup">
+          <input id="radio4" name="radio" type="radio"/>
+          <label for="radio4">No</label>
+        </div>
       </div>
+       
+      </div>
+      
+     
+
+      
     </div>
-    
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+      <defs>
+        <filter id="goo">
+          <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur>
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 21 -7" result="goo"></feColorMatrix>
+          <feBlend in2="goo" in="SourceGraphic" result="mix"></feBlend>
+        </filter>
+      </defs>
+    </svg>
 	  <!--===============================================================================================-->	
     <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
     <!--===============================================================================================-->
@@ -122,6 +145,20 @@
        <script>
         require('./renderer.js')
         
+     </script>
+     <script>
+       function changebutton(){
+        document.getElementById('blob1').style.backgroundColor = '#040469';
+        document.getElementById('blob2').style.backgroundColor = '#040469';
+        document.getElementById('blob3').style.backgroundColor = '#040469';
+        document.getElementById('blob4').style.backgroundColor = '#040469';
+        document.getElementById('start-btn').style.borderColor = "#040469";
+        setTimeout(function(){  document.getElementById('blob1').style.backgroundColor = '#0505A9';
+        document.getElementById('blob2').style.backgroundColor = '#0505A9';
+        document.getElementById('blob3').style.backgroundColor = '#0505A9';
+        document.getElementById('blob4').style.backgroundColor = '#0505A9'; }, 150);
+       }
+
      </script>
 </body>
 </html>

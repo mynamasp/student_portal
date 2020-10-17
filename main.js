@@ -63,17 +63,31 @@ app.on('activate', function () {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 ipcMain.on('open-home-window', (event) => {
-  let win = new BrowserWindow({ width: 800,
-    height: 600,
-    frame: false,
-    transparent:true,
-    backgroundColor: '#FFF',
-    webPreferences: {
-        nodeIntegration: true,
-        enableRemoteModule: true
-        
-    }
-  })
-  win.loadFile(`home.html`);
-  mainWindow.close();
+    let win = new BrowserWindow({ width: 1400,
+      height: 900,
+      frame: false,
+      transparent:true,
+      backgroundColor: '#FFF',
+      webPreferences: {
+          nodeIntegration: true,
+          enableRemoteModule: true
+        }
+    })
+ win.loadFile(`home.html`);
+ mainWindow.close();
+});
+  
+ipcMain.on('open-test-window', (event) => {
+    let win = new BrowserWindow({ width: 1200,
+      height: 900,
+      frame: false,
+      transparent:true,
+      backgroundColor: '#FFF',
+      webPreferences: {
+          nodeIntegration: true,
+          enableRemoteModule: true
+        }
+    })
+    win.loadFile(`test.html`);
+    
 });
