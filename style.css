@@ -3,6 +3,10 @@
     -webkit-animation: fadein 2s;
     animation: fadein 2s;
     font-size: 35px;
+    padding-bottom: 20px;
+    text-align: right;
+    display: inline;
+   
 }
 
 .flex-container {
@@ -31,28 +35,28 @@
   height: 75%;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  background-color: rgb(81, 156, 6);
+  background-color:#EA4335;
 }
 .physics-card {
   width: 100%;
   height: 75%;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  background-color: rgb(179, 111, 48);
+  background-color:#FBBC05;
 }
 .maths-card {
   width: 100%;
   height: 75%;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  background-color: rgb(255, 46, 203);
+  background-color:#4285F4;
 }
 .biology-card {
   width: 100%;
   height: 75%;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  background-color: rgb(57, 143, 255);
+  background-color: #34A853;
 }
 
 
