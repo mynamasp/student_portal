@@ -33,7 +33,7 @@ elif input_data[0] == "logIn":
         print("false")
 
 elif input_data[0] == "getHomeInfo":
-    print("homeinfo")
+    print("Prasanna;12;A;Red;Chemistry;Surface Chemistry;Assignment;4 Days Left;Chemistry;P-Block Element;Assignment;4 Days Left;Physics;Alternating Current;Assignment;2 Days left;Maths;Linear Programing;Assignment;1 Day Left;Biology;Evolution;Assignment;1 Day left;Chemistry;P-Block Element;40 Marks;10-30-2020")
 
 
 else:

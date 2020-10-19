@@ -171,7 +171,7 @@
            
             <div onclick="redirect()">
               <div class="card">
-                <div id="card1" class="Chemistry-card">
+                <div id="card1" >
                 <h4 id="subject1" class="due-sub"><b>Jane Doe</b></h4>
                 <p id="topic1" class="due-topic">Interior Designer</p>
                 <p id="type1" class="due-type">Interior Designer</p>
@@ -181,7 +181,7 @@
             </div>
             <div>
               <div class="card">
-                <div id="card2" class="physics-card">
+                <div id="card2" >
                   <h4 id="subject2" class="due-sub"><b>Jane Doe</b></h4>
                   <p id="topic2" class="due-topic">Interior Designer</p>
                   <p id="type2" class="due-type">Interior Designer</p>
@@ -191,7 +191,7 @@
             </div>
             <div>
               <div class="card">
-                <div id="card3" class="maths-card">
+                <div id="card3" >
                   <h4 id="subject3" class="due-sub"><b>Jane Doe</b></h4>
                   <p id="topic3" class="due-topic">Interior Designer</p>
                   <p id="type3" class="due-type">Interior Designer</p>
@@ -201,7 +201,7 @@
             </div>
             <div>
               <div class="card">
-                <div id="card4" class="biology-card">
+                <div id="card4" >
                   <h4 id="subject4" class="due-sub"><b>Jane Doe</b></h4>
                   <p  id="topic4" class="due-topic">Interior Designer</p>
                   <p id="type4" class="due-type">Interior Designer</p>
@@ -211,7 +211,7 @@
             </div>
             <div id="hid-card">
               <div  class="card">
-                <div id="card5" class="chemistry-card">
+                <div id="card5" >
                   <h4 id="subject5" class="due-sub"><b>Jane Doe</b></h4>
                   <p id="topic5" class="due-topic">Interior Designer</p>
                   <p id="type5" class="due-type">Interior Designer</p>
@@ -222,14 +222,14 @@
           </div>
         </div>
       </div>
-      <div class="card2 fade-in two" style="background-color: #EA4335">
+      <div id="test-card" class="card2 fade-in two">
         <div class="container">
           <div class="flex-container">
             <div>
               
-                <h5 style="font-size: 2.7em;color: #fafafa;margin-top: 5px;"> Chemistry Test</h5>
-                <h6 style="font-size: 2.2em;color: #ffffff;margin-top: 15px;"> P-Block Element</h6>
-                <h6 style="font-size: 2em;color: #ffffff;margin-top: 15px;"> 20 Marks</h6>
+                <h5 id="testSubject" style="font-size: 2.7em;color: #fafafa;margin-top: 5px;"> Chemistry Test</h5>
+                <h6 id="testTopic"  style="font-size: 2.2em;color: #ffffff;margin-top: 15px;"> P-Block Element</h6>
+                <h6 id="testMarks" style="font-size: 2em;color: #ffffff;margin-top: 15px;"> 20 Marks</h6>
             </div>
             <div>
               <div class="countdown-container">
@@ -310,28 +310,7 @@
   </script>
   <script src="home.js"></script>
   <script>
-    const second = 1000,
-      minute = second * 60,
-      hour = minute * 60,
-      day = hour * 24;
-
-    let countDown = new Date('Oct 30, 2020 00:00:00').getTime(),
-      x = setInterval(function () {
-
-        let now = new Date().getTime(),
-          distance = countDown - now;
-        console.log(countDown)
-        document.getElementById('days').innerText = Math.floor(distance / (day)),
-          document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
-          document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
-          document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
-
-
-        //if (distance < 0) {
-
-        //}
-
-      }, second)
+   
   </script>
 <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
