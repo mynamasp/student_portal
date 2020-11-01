@@ -82,42 +82,10 @@
     </div>
   </header>
 
-  <h1 id="test-subject-name" class="subject-name">Chemistry Test</h1>
-  <ul class="live">
-    <li id="cond1"> </li>
-    <li id="cond2"> </li>
-    <li id="cond3"> </li>
-    <li id="cond4"> </li>
-    
-  </ul>
   <div class="mark-card">
-    <div class="flex-container">
-      <div>
-        <h1 id="tMarks" style="padding-top:15px;">Marks: </h1>
-      </div>
-      <div>
-        <h1 id="nOfQues" style="padding-top: 15px;">Questions: </h1>
-      </div>
-      <div>
-        <h1 id="ttime" style="padding-top: 15px;">Duration: </h1>
-      </div>
-    </div>
+    
   </div>
-  <div class="buttons">
-    <button id="start-btn" class="blob-btn" onclick="changebutton()">
-      Start Test
-      <span class="blob-btn__inner">
-        <span class="blob-btn__blobs">
-          <span id="blob1" class="blob-btn__blob"></span>
-          <span id="blob2" class="blob-btn__blob"></span>
-          <span id="blob3" class="blob-btn__blob"></span>
-          <span id="blob4" class="blob-btn__blob"></span>
-        </span>
-      </span>
-    </button>
-    <br />
-  </div>
-  <div id="blur-overlay">
+
     
       <div id="qc-1" class="question-card">
         
@@ -126,7 +94,7 @@
           
           <div>
             <div class="inputGroup">
-              <input id="1A" value="1A" name="1" type="radio"/>
+              <input id="1A" value="1A" name="1" type="radio" checked />
               <label id="1" for="1A">Prasanna</label>
             </div>
           </div>
@@ -960,8 +928,8 @@
       </div>
      
       <div class="buttons">
-        <button  id="start-btnA" class="blob-btn" onclick="changebutton2();sendTestData();">
-          Finsh Test
+        <button  id="start-btnA" class="blob-btn" onclick="changebutton2();goHome();">
+         Go Home
           <span class="blob-btn__inner">
             <span class="blob-btn__blobs">
               <span id="blob1A" class="blob-btn__blob"></span>
@@ -971,7 +939,6 @@
             </span>
           </span>
         </button>
-        </div>
     </div>
     
     <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
@@ -1030,45 +997,7 @@
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
-    <script>
-      $(document).ready(function () {
-        blurQuick("#blur-overlay", 10);
-        $("#start-btn").click(function () {
-          $("#test-subject-name").fadeIn(3000);
-
-          $(".question-card").animate({ top: "-120px" });
-          $('#start-btn').css("opacity", "1.0").animate({ opacity: 0 }, 500, function () {
-            $('#start-btn').css("visibility", "hidden");
-          });
-          blurElement("#blur-overlay", 0);
-        });
-
-      });
-      function blurElement(element, size) {
-     var filterVal = 'blur(' + size + 'px)';
-      $(element).css({
-        'filter':filterVal,
-        'webkitFilter':filterVal,
-        'mozFilter':filterVal,
-        'oFilter':filterVal,
-        'msFilter':filterVal,
-        'transition':'all 0.5s ease-out',
-        '-webkit-transition':'all 0.5s ease-out',
-        '-moz-transition':'all 0.5s ease-out',
-        '-o-transition':'all 0.5s ease-out'
-    });
-    }
     
-    function blurQuick(element, size) {
-     var filterVal = 'blur(' + size + 'px)';
-      $(element).css({
-        'filter':filterVal,
-        'webkitFilter':filterVal,
-   
-    });
-
- }
-    </script>
 </body>
 
 </html>

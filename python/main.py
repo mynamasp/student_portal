@@ -3,7 +3,7 @@ import pandas as pd
 import mysql.connector as dba
 import csv
 import os
-input_data = sys.argv[1].split(",")
+input_data = sys.argv[1].split(";")
 
 if input_data[0] == "isSignedIn":
     if os.path.isfile('details.csv'):
@@ -15,8 +15,10 @@ elif input_data[0] == "logIn":
     userID = input_data[1]
     password = input_data[2]
     QUERY = "SELECT * FROM username WHERE user = '"+userID+"' and pwd = '"+password+"'"
-    db = dba.connect(host="database-1.cbokszrbjxyr.ap-south-1.rds.amazonaws.com", user='admin', passwd='tecnis15665',
-                     database="students")
+    db = dba.connect(host = "remotemysql.com",
+        user = "JtURNtxFwv",
+        password = "VNmsknSD7o",
+        database = "JtURNtxFwv")
     mycursor = db.cursor()
     mycursor.execute(QUERY)
     value=[]
@@ -35,6 +37,10 @@ elif input_data[0] == "logIn":
 elif input_data[0] == "getHomeInfo":
     print("Prasanna;12;A;Red;Chemistry;Surface Chemistry;Assignment;4 Days Left;Chemistry;P-Block Element;Assignment;4 Days Left;Physics;Alternating Current;Assignment;2 Days left;Maths;Linear Programing;Assignment;1 Day Left;Biology;Evolution;Assignment;1 Day left;Chemistry;P-Block Element;40 Marks;10-30-2020")
 
+elif input_data[0] == "loadTestData":
+    print("Chemistry;The Exam is of three hours duration;There are of total of 25 questions for 75 Marks;There are three sections to be attempted;No negative Marking;75;20;180;adffF;Fsdfsdf;SDF;DSfSDF;sdfSDFdwsf;dsfSDFsdaf;DFDFdfDF;FddfSDFdsa;DSAFsfDF;dfSDAFddfSF;dfSDAFddfSF;dfSDAFddfSF;dfSDAFddfSF;dfSDAFddfSF;dfSDAFddfSF;dfSDAFddfSF;dfSDAFddfSF;dfSDAFddfSF;dfSDAFddfSF;dfSDAFddfSF;dfSDAFddfSF;dfSDAFddfSF;dfSDAFddfSF;dfSDAFddfSF;grseger;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;")
 
+elif input_data[0] == "testAnswers":
+    print("true")
 else:
     print("python out: "+input_data[0])
