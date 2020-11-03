@@ -2,6 +2,7 @@
 const electron = require('electron')
 const {app, BrowserWindow, ipcMain} = electron
 
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
@@ -78,7 +79,7 @@ ipcMain.on('open-home-window', (event) => {
 });
   
 ipcMain.on('open-test-window', (event) => {
-    let win = new BrowserWindow({ width: 1200,
+    let win = new BrowserWindow({ width: 1450,
       height: 900,
       frame: false,
       transparent:true,
@@ -88,6 +89,21 @@ ipcMain.on('open-test-window', (event) => {
           enableRemoteModule: true
         }
     })
-    win.loadFile(`test.html`);
+win.loadFile(`test.html`);
+    
+});
+
+ipcMain.on('open-result-window', (event) => {
+    let win = new BrowserWindow({ width: 1400,
+      height: 900,
+      frame: false,
+      transparent:true,
+      backgroundColor: '#FFF',
+      webPreferences: {
+          nodeIntegration: true,
+          enableRemoteModule: true
+        }
+    })
+win.loadFile(`result.html`);
     
 });

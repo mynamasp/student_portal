@@ -1,10 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 :root {
   font-size: 16px;
-  font-family: 'Open Sans';
+  font-family: 'Poppins', sans-serif;
   --text-primary: #b6b6b6;
   --text-secondary: #ececec;
   --bg-primary: #23232e;
-  --bg-secondary: #141418;
+  --bg-secondary: #23232e;
   --transition-speed: 600ms;
 }
 
@@ -200,12 +201,6 @@ main {
   --bg-secondary: #e4e4e4;
 }
 
-.solar {
-  --text-primary: #576e75;
-  --text-secondary: #35535c;
-  --bg-primary: #fdf6e3;
-  --bg-secondary: #f5e5b8;
-}
 
 .theme-icon {
   display: none;

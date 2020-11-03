@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800;900&display=swap');
+
 #welcome-msg{
     color: rgb(255, 255, 255);
     -webkit-animation: fadein 2s;
@@ -36,6 +38,8 @@
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   background-color:#EA4335;
+  
+
 }
 .physics-card {
   width: 100%;
@@ -133,6 +137,7 @@
     font-weight: bold;
     margin-bottom: -15px;
     color: #4e4e4e;
+    font-family: 'Nunito', sans-serif;
     margin-top: -8px;
     
   }
@@ -141,6 +146,7 @@
     display: inline-block;
     color: #747272;
     font-size: 1.5em;
+    font-family: 'Nunito', sans-serif;
     list-style-type: none;
     font-weight: bold;
     padding: 1em;
@@ -150,6 +156,7 @@
   
   .countdown-time {
     display: block;
+    font-family: 'Nunito', sans-serif;
     font-size: 4.5rem;
   }
   
@@ -170,25 +177,30 @@
 
   .due-sub{
     color: white;
-    font-size: 1.5rem;
-    padding-top: 35px;
+    
+    padding-top: 25px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.9rem;
 }  
 
 
   .due-topic{
     color: white;
-      font-size: 1rem;
+      font-size: 1.2rem;
       margin-top:5px;
+      font-family: 'Nunito', sans-serif;
   }
   .due-type{
     color: white;
     font-size: 1rem;
     margin-top: -3.5px;
+    font-family: 'Nunito', sans-serif;
   }
   .due-day{
     color: rgb(83, 83, 83);
       font-size: 1.1rem;
       font-weight: bold;
+      font-family: 'Nunito', sans-serif;
      
   }
 

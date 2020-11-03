@@ -19,7 +19,7 @@
   <!--===============================================================================================-->
   <link rel="stylesheet" type="text/css" href="css/util.css">
   <link rel="stylesheet" type="text/css" href="css/main.css">
-  <link rel="stylesheet" type="text/css" href="test.css">
+  <link rel="stylesheet" type="text/css" href="result.css">
 
 
   <style> 
@@ -41,13 +41,12 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
 
 
-  <script src="test.js"></script>
  
   <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 
 </head>
 
-<body id="body1" style="background-color: #EA4335;overflow: hidden;" onload="loadTestData()">
+<body id="body1" style="background-color: #EA4335;" onload="loadResultData();">
   <header id="titlebar">
     <div id="drag-region">
 
@@ -82,9 +81,20 @@
     </div>
   </header>
 
+  <h1 id="test-subject-name" class="subject-name">Chemistry Test</h1>
+  
   <div class="mark-card">
+    <div class="flex-container">
+      <div style="width: 62%;">
+        <div style="text-align: end;" class="marks">Your marks is : </div>
+      </div>
+      <div style="width: 38%;">
+        <div style="text-align: start;" class="marks">56</div>
+      </div>
+    </div>
     
   </div>
+  
 
     
       <div id="qc-1" class="question-card">
@@ -94,25 +104,25 @@
           
           <div>
             <div class="inputGroup">
-              <input id="1A" value="1A" name="1" type="radio" checked />
+              <input id="1A" value="1A" name="1" type="checkbox"/>
               <label id="1" for="1A">Prasanna</label>
             </div>
           </div>
           <div>
             <div class="inputGroup">
-              <input id="1B" value="1B" name="1" type="radio" />
+              <input id="1B" value="1B" name="1" type="checkbox" />
               <label id="2" for="1B">Viki</label>
             </div>
           </div>
           <div>
             <div class="inputGroup">
-              <input id="1C" value="1C" name="1" type="radio" />
+              <input id="1C" value="1C" name="1" type="checkbox" />
               <label id="3" for="1C">Aashiq</label>
             </div>
           </div>
           <div>
             <div class="inputGroup">
-              <input id="1D" value="1D" name="1" type="radio" />
+              <input id="1D" value="1D" name="1" type="checkbox" />
               <label id="4" for="1D">Nithish</label>
             </div>
           </div>
@@ -928,8 +938,8 @@
       </div>
      
       <div class="buttons">
-        <button  id="start-btnA" class="blob-btn" onclick="changebutton2();goHome();">
-         Go Home
+        <button  id="start-btnA" class="blob-btn" onclick="changebutton2();sendTestData();">
+          Go Home
           <span class="blob-btn__inner">
             <span class="blob-btn__blobs">
               <span id="blob1A" class="blob-btn__blob"></span>
@@ -939,6 +949,7 @@
             </span>
           </span>
         </button>
+        </div>
     </div>
     
     <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
@@ -996,7 +1007,38 @@
 
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    
+    <script>
+      $(document).ready(function(){
+        $('input[name=1]').attr("disabled",true);
+        $('input[name=2]').attr("disabled",true);
+        $('input[name=3]').attr("disabled",true);
+        $('input[name=4]').attr("disabled",true);
+        $('input[name=5]').attr("disabled",true);
+        $('input[name=6]').attr("disabled",true);
+        $('input[name=7]').attr("disabled",true);
+        $('input[name=8]').attr("disabled",true);
+        $('input[name=9]').attr("disabled",true);
+        $('input[name=10]').attr("disabled",true);
+        $('input[name=11]').attr("disabled",true);
+        $('input[name=12]').attr("disabled",true);
+        $('input[name=13]').attr("disabled",true);
+        $('input[name=14]').attr("disabled",true);
+        $('input[name=15]').attr("disabled",true);
+        $('input[name=16]').attr("disabled",true);
+        $('input[name=17]').attr("disabled",true);
+        $('input[name=18]').attr("disabled",true);
+        $('input[name=19]').attr("disabled",true);
+        $('input[name=20]').attr("disabled",true);
+        $('input[name=21]').attr("disabled",true);
+        $('input[name=22]').attr("disabled",true);
+        $('input[name=23]').attr("disabled",true);
+        $('input[name=24]').attr("disabled",true);
+        $('input[name=25]').attr("disabled",true);
+        
+      });
+     
+    </script>
+    <script src="result.js"></script>
     
 </body>
 

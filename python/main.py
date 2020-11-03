@@ -1,7 +1,6 @@
 import sys
 import pandas as pd
 import mysql.connector as dba
-import csv
 import os
 input_data = sys.argv[1].split(";")
 
@@ -35,12 +34,14 @@ elif input_data[0] == "logIn":
         print("false")
 
 elif input_data[0] == "getHomeInfo":
-    print("Prasanna;12;A;Red;Chemistry;Surface Chemistry;Assignment;4 Days Left;Chemistry;P-Block Element;Assignment;4 Days Left;Physics;Alternating Current;Assignment;2 Days left;Maths;Linear Programing;Assignment;1 Day Left;Biology;Evolution;Assignment;1 Day left;Chemistry;P-Block Element;40 Marks;10-30-2020")
+    print("Prasanna;12;A;Red;Chemistry;Surface Chemistry;Assignment;4 Days Left;Chemistry;P-Block Element;Assignment;4 Days Left;Physics;Alternating Current;Assignment;2 Days left;Maths;Linear Programing;Assignment;1 Day Left;Biology;Evolution;Assignment;1 Day left;Chemistry;P-Block Element;40 Marks;11-30-2020")
 
 elif input_data[0] == "loadTestData":
     print("Chemistry;The Exam is of three hours duration;There are of total of 25 questions for 75 Marks;There are three sections to be attempted;No negative Marking;75;20;180;adffF;Fsdfsdf;SDF;DSfSDF;sdfSDFdwsf;dsfSDFsdaf;DFDFdfDF;FddfSDFdsa;DSAFsfDF;dfSDAFddfSF;dfSDAFddfSF;dfSDAFddfSF;dfSDAFddfSF;dfSDAFddfSF;dfSDAFddfSF;dfSDAFddfSF;dfSDAFddfSF;dfSDAFddfSF;dfSDAFddfSF;dfSDAFddfSF;dfSDAFddfSF;dfSDAFddfSF;dfSDAFddfSF;dfSDAFddfSF;grseger;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;")
 
 elif input_data[0] == "testAnswers":
     print("true")
+elif input_data[0] == "loadResultData":
+    print("Chemistry;The Exam is of three hours duration;There are of total of 25 questions for 75 Marks;There are three sections to be attempted;No negative Marking;75;20;180;adffF;Fsdfsdf;SDF;DSfSDF;sdfSDFdwsf;dsfSDFsdaf;DFDFdfDF;FddfSDFdsa;DSAFsfDF;dfSDAFddfSF;dfSDAFddfSF;dfSDAFddfSF;dfSDAFddfSF;dfSDAFddfSF;dfSDAFddfSF;dfSDAFddfSF;dfSDAFddfSF;dfSDAFddfSF;dfSDAFddfSF;dfSDAFddfSF;dfSDAFddfSF;dfSDAFddfSF;dfSDAFddfSF;dfSDAFddfSF;grseger;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;answer;")
 else:
     print("python out: "+input_data[0])

@@ -151,6 +151,9 @@ function sendTestData() {
   let pyshell = new PythonShell("main.py", options);
 
   pyshell.on("message", function (message) {
-    
+    if(message === "true"){
+      ipcRenderer.send("open-result-window", "result");
+      console.log("results coming up")
+    }
   });
 }
