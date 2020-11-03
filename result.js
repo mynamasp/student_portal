@@ -14,7 +14,9 @@ function loadResultData() {
     console.log(message);
     const output = message.split(";");
     const subject = output[0];
-    const nOfQues = parseInt(output[6], 10);
+    const nOfQues = parseInt(output[1], 10);
+    const totalMarks = parseInt(output[2], 10);
+    const finalMarks = parseInt(output[3], 10);
     const arrayLength = output.length;
     let q = 1;
     let n = 0;
@@ -23,9 +25,11 @@ function loadResultData() {
     console.log(nOfQues);
 
     document.getElementById("test-subject-name").innerHTML = subject + " Test";
+    document.getElementById("totalMarks").innerHTML = totalMarks;
+    document.getElementById("finalMarks").innerHTML = finalMarks;
    
 
-    for (let index = 8; index < nOfQues + 8; index++) {
+    for (let index = 4; index < nOfQues + 4; index++) {
       let question = output[index];
       let id = "q" + q;
       console.log(id);
@@ -33,7 +37,7 @@ function loadResultData() {
       q++;
     }
 
-    for (let i = 8 + nOfQues; i < arrayLength; i++) {
+    for (let i = 4 + nOfQues; i < arrayLength; i++) {
       let answer = output[i];
       console.log(a);
       document.getElementById(a).innerHTML = answer;
@@ -49,89 +53,7 @@ function loadResultData() {
   });
 }
 
-function sendTestData() {
-  console.log("Sending Test Data");
-  let i = 1;
 
-  let answer1 = $("input:radio[name=1]:checked").val();
-  let answer2 = $("input:radio[name=2]:checked").val();
-  let answer3 = $("input:radio[name=3]:checked").val();
-  let answer4 = $("input:radio[name=4]:checked").val();
-  let answer5 = $("input:radio[name=5]:checked").val();
-  let answer6 = $("input:radio[name=6]:checked").val();
-  let answer7 = $("input:radio[name=7]:checked").val();
-  let answer8 = $("input:radio[name=8]:checked").val();
-  let answer9 = $("input:radio[name=9]:checked").val();
-  let answer10 = $("input:radio[name=10]:checked").val();
-  let answer11 = $("input:radio[name=11]:checked").val();
-  let answer12 = $("input:radio[name=12]:checked").val();
-  let answer13 = $("input:radio[name=13]:checked").val();
-  let answer14 = $("input:radio[name=14]:checked").val();
-  let answer15 = $("input:radio[name=15]:checked").val();
-  let answer16 = $("input:radio[name=16]:checked").val();
-  let answer17 = $("input:radio[name=17]:checked").val();
-  let answer18 = $("input:radio[name=18]:checked").val();
-  let answer19 = $("input:radio[name=19]:checked").val();
-  let answer20 = $("input:radio[name=20]:checked").val();
-  let answer21 = $("input:radio[name=21]:checked").val();
-  let answer22 = $("input:radio[name=22]:checked").val();
-  let answer23 = $("input:radio[name=23]:checked").val();
-  let answer24 = $("input:radio[name=24]:checked").val();
-  let answer25 = $("input:radio[name=25]:checked").val();
-  
-  let answers =
-    answer1 +
-    ";" +
-    answer2 +
-    ";" +
-    answer3 +
-    ";" +
-    answer4 +
-    ";" +
-    answer5 +
-    ";" +
-    answer6 +
-    ";" +
-    answer7 +
-    ";" +
-    answer8 +
-    ";" +
-    answer9 +
-    ";" +
-    answer10 +
-    ";" +
-    answer11 +
-    ";" +
-    answer12 +
-    ";" +
-    answer13 +
-    ";" +
-    answer14 +
-    ";" +
-    answer15 +
-    ";" +
-    answer16 +
-    ";" +
-    answer17 +
-    ";" +
-    answer18 +
-    ";" +
-    answer19 +
-    ";" +
-    answer20 +
-    ";" +
-    answer21 +
-    ";" +
-    answer22 +
-    ";" +
-    answer23 +
-    ";" +
-    answer24 +
-    ";" +
-    answer25;
-  console.log(answers);
-
-  document.getElementById()
 
 //   var options = {
 //     scriptPath: path.join(__dirname, "python/"),
@@ -146,4 +68,4 @@ function sendTestData() {
 //       console.log("results coming up")
 //     }
 //   });
-}
+

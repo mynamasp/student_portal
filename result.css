@@ -28,14 +28,17 @@
   border-radius: 10px;
   background-color: rgba(250, 250, 250);
   margin-top: 50px;
-  height: 100px;
+  height: 75px;
   box-align: center;
 }
 
 .marks {
-    margin: auto;
+    margin-left: auto;
+    margin-left: auto;
     font-family: 'Poppins', sans-serif;
     font-size: 3rem;
+    display: inline;
+    padding-top: 20px;
 }
 
 .flex-container {
