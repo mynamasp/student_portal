@@ -2,6 +2,12 @@ let { PythonShell } = require("python-shell");
 const { ipcRenderer } = require("electron");
 var path = require("path");
 
+
+function goHome(){
+  ipcRenderer.send("go-home", "home");
+  console.log("ipc message sent");
+}
+
 function loadResultData() {
   console.log("Loading Test data");
   var options = {
@@ -22,12 +28,19 @@ function loadResultData() {
     let n = 0;
     let a = 1;
     let box = 25;
+    
+    //this value must be tweaked after backend
+    let offset1 = 4;
+    let offset2 = (nOfQues*4)+( offset1 + nOfQues);
+    
     console.log(nOfQues);
-
+    
     document.getElementById("test-subject-name").innerHTML = subject + " Test";
     document.getElementById("totalMarks").innerHTML = totalMarks;
     document.getElementById("finalMarks").innerHTML = finalMarks;
    
+    
+
 
     for (let index = 4; index < nOfQues + 4; index++) {
       let question = output[index];
@@ -37,11 +50,32 @@ function loadResultData() {
       q++;
     }
 
-    for (let i = 4 + nOfQues; i < arrayLength; i++) {
+    
+    for (let i = offset1 + nOfQues; i < offset2; i++) {
       let answer = output[i];
       console.log(a);
       document.getElementById(a).innerHTML = answer;
       a++;
+    }
+
+
+
+    for (let r = offset2; r < offset2+nOfQues; r++) {
+      let option = String(output[r]);
+      console.log(option)
+      if(option !== "null"){
+      let element  = document.getElementById(option);
+      element.checked = true;
+      }
+    }
+
+    for (let c = offset2+nOfQues; c < offset2+(nOfQues*2); c++) {
+      let option =String(output[c]);
+      let element  = document.getElementById(option);
+      element.checked = true;
+      let color = output[c]+"b"
+      color.classList.remove("inputGroup");
+      color.classList.add("inputGroup-correct")
     }
 
     for (let b = 25 - nOfQues; b > 0; b--) {
@@ -52,20 +86,11 @@ function loadResultData() {
     }
   });
 }
+  
+
+  
 
 
 
-//   var options = {
-//     scriptPath: path.join(__dirname, "python/"),
-//     args: ["testAnswers;" + answers],
-//   };
 
-//   let pyshell = new PythonShell("main.py", options);
-
-//   pyshell.on("message", function (message) {
-//     if(message === "true"){
-//       ipcRenderer.send("open-result-window", "result");
-//       console.log("results coming up")
-//     }
-//   });
 

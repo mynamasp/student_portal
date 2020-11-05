@@ -25,8 +25,14 @@ function login() {
       document.getElementById("userID").value = "";
       document.getElementById("password").value = "";
       console.log("loginedin");
-    } else {
+    }
+    else if (message === "false") {
+      document.getElementById("password").value = "";
+      document.getElementById("error-msg").style.display = "block";
+    } 
+    else {
       console.log(message);
+
     }
   });
 }

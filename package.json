@@ -1,10 +1,11 @@
 {
   "name": "student_portal",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "an App to write Test and complete aassignment for students",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
+    
   },
   "repository": "https://github.com/mynamasp/student_portal",
   "keywords": [
@@ -17,12 +18,15 @@
   "author": "S.Prasanna",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^10.1.2"
+    "electron": "^10.1.2",
+    "webpack": "^5.4.0",
+    "webpack-cli": "^4.2.0"
   },
   "dependencies": {
     "@fullcalendar/core": "^5.3.1",
     "@fullcalendar/daygrid": "^5.3.2",
     "asar": "^3.0.3",
-    "python-shell": "^2.0.2"
+    "python-shell": "^2.0.2",
+    "v8-compile-cache": "^2.2.0"
   }
 }

@@ -1,4 +1,5 @@
 // Modules to control application life and create native browser window
+require('v8-compile-cache');
 const electron = require('electron')
 const {app, BrowserWindow, ipcMain} = electron
 
@@ -105,5 +106,20 @@ ipcMain.on('open-result-window', (event) => {
         }
     })
 win.loadFile(`result.html`);
+    
+});
+
+ipcMain.on('go-home', (event) => {
+    let win = new BrowserWindow({ width: 1400,
+      height: 900,
+      frame: false,
+      transparent:true,
+      backgroundColor: '#FFF',
+      webPreferences: {
+          nodeIntegration: true,
+          enableRemoteModule: true
+        }
+    })
+win.loadFile(`home.html`);
     
 });
