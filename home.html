@@ -16,11 +16,22 @@
 </head>
 
 <body style="background: rgb(131,58,180);" onload="getHomeInfo()">
+  
+  <div class="overlay" id="overlay">
+    <div class="overlay__inner">
+        <div class="overlay__content"><span class="spinner"></span></div>
+     
+    </div>
+  </div>
+  <div id="loading" class="overlay__inner" style="display: none;">
+    <div class="overlay__content"><span class="spinner"></span></div>
+ 
+</div>
   <div class="wrapper">
     <header id="titlebar">
       <div id="drag-region">
 
-        <div id="window-title">
+        <div id="window-title" onmousedown="return false">
 
         </div>
 
@@ -157,7 +168,7 @@
                   class="fa-primary"></path>
               </g>
             </svg>
-            <span class="link-text">Sign Out</span>
+            <span onclick="signOut()" class="link-text">Sign Out</span>
           </a>
         </li>
       </ul>
@@ -169,7 +180,7 @@
         <div class="container">
           <div class="flex-container">
            
-            <div onclick="redirect()">
+            <div onclick="setdata1()">
               <div class="card">
                 <div id="card1" >
                 <h4 id="subject1" class="due-sub"><b>Jane Doe</b></h4>

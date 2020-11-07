@@ -90,6 +90,7 @@ p {
 #window-title {
   grid-column: 1;
   display: flex;
+  
   align-items: center;
   margin-left: 8px;
   overflow: hidden;
@@ -107,6 +108,7 @@ p {
 
 #window-title span {
   overflow: hidden;
+ 
   text-overflow: ellipsis;
   white-space: nowrap;
   line-height: 1.5;

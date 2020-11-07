@@ -2,8 +2,22 @@ let { PythonShell } = require("python-shell");
 const { ipcRenderer } = require("electron");
 var path = require("path");
 
+function fade(element) {
+  var op = 1;  // initial opacity
+  var timer = setInterval(function () {
+      if (op <= 0.1){
+          clearInterval(timer);
+          element.style.display = 'none';
+      }
+      element.style.opacity = op;
+      element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+      op -= op * 0.1;
+  }, 50);
+}
 
 function goHome(){
+  document.getElementById("loading").style.display="block";
+
   ipcRenderer.send("go-home", "home");
   console.log("ipc message sent");
 }
@@ -17,8 +31,9 @@ function loadResultData() {
   let pyshell = new PythonShell("main.py", options);
 
   pyshell.on("message", function (message) {
-    console.log(message);
-    const output = message.split(";");
+    console.log(message)
+    const output = eval(message)
+    console.log(output);
     const subject = output[0];
     const nOfQues = parseInt(output[1], 10);
     const totalMarks = parseInt(output[2], 10);
@@ -29,6 +44,21 @@ function loadResultData() {
     let a = 1;
     let box = 25;
     
+    document.body.style.backgroundColor = ""
+    if (subject === "Chemistry") {
+         document.body.style.backgroundColor = "#EA4335";
+    } else if (subject === "Physics") {
+         document.body.style.backgroundColor = "#FBBC05";
+    } else if (subject === "Maths") {
+         document.body.style.backgroundColor = "#4285F4";
+    } else if (subject === "Biology") {
+         document.body.style.backgroundColor = "#34A853";
+    } else if (subject === "IP") {
+         document.body.style.backgroundColor = "FBBC05";
+    } else {
+         document.body.style.backgroundColor = "EA4335";
+    }
+
     //this value must be tweaked after backend
     let offset1 = 4;
     let offset2 = (nOfQues*4)+( offset1 + nOfQues);
@@ -45,7 +75,6 @@ function loadResultData() {
     for (let index = 4; index < nOfQues + 4; index++) {
       let question = output[index];
       let id = "q" + q;
-      console.log(id);
       document.getElementById(id).innerHTML = question;
       q++;
     }
@@ -53,7 +82,6 @@ function loadResultData() {
     
     for (let i = offset1 + nOfQues; i < offset2; i++) {
       let answer = output[i];
-      console.log(a);
       document.getElementById(a).innerHTML = answer;
       a++;
     }
@@ -63,7 +91,7 @@ function loadResultData() {
     for (let r = offset2; r < offset2+nOfQues; r++) {
       let option = String(output[r]);
       console.log(option)
-      if(option !== "null"){
+      if(option !== "undefined"){
       let element  = document.getElementById(option);
       element.checked = true;
       }
@@ -71,9 +99,11 @@ function loadResultData() {
 
     for (let c = offset2+nOfQues; c < offset2+(nOfQues*2); c++) {
       let option =String(output[c]);
+      console.log(option)
       let element  = document.getElementById(option);
       element.checked = true;
-      let color = output[c]+"b"
+      let color =document.getElementById(output[c]+"b");
+      console.log(output[c]+"b")
       color.classList.remove("inputGroup");
       color.classList.add("inputGroup-correct")
     }
@@ -84,6 +114,8 @@ function loadResultData() {
       box = box - 1;
       console.log(qc);
     }
+    let overlay = document.getElementById("overlay");
+    fade(overlay)
   });
 }
   

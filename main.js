@@ -123,3 +123,18 @@ ipcMain.on('go-home', (event) => {
 win.loadFile(`home.html`);
     
 });
+
+ipcMain.on('open-login-window', (event) => {
+    let win = new BrowserWindow({ width: 1400,
+      height: 900,
+      frame: false,
+      transparent:true,
+      backgroundColor: '#FFF',
+      webPreferences: {
+          nodeIntegration: true,
+          enableRemoteModule: true
+        }
+    })
+win.loadFile(`index.html`);
+    
+});

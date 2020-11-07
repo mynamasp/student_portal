@@ -1,6 +1,23 @@
 let { PythonShell } = require("python-shell");
 const { ipcRenderer } = require("electron");
+const fs = require('fs') 
 var path = require("path");
+
+
+
+function fade(element) {
+  var op = 1;  // initial opacity
+  var timer = setInterval(function () {
+      if (op <= 0.1){
+          clearInterval(timer);
+          element.style.display = 'none';
+      }
+      element.style.opacity = op;
+      element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+      op -= op * 0.1;
+  }, 50);
+}
+
 
 function loadTestData() {
   console.log("Loading Test data");
@@ -11,8 +28,13 @@ function loadTestData() {
   let pyshell = new PythonShell("main.py", options);
 
   pyshell.on("message", function (message) {
-    console.log(message);
-    const output = message.split(";");
+    
+    
+    
+
+    console.log(eval(message));
+
+    var output =eval(message);
     const subject = output[0];
     const cond1 = output[1];
     const cond2 = output[2];
@@ -26,7 +48,20 @@ function loadTestData() {
     let n = 0;
     let a = 1;
     let box = 25;
-    console.log(nOfQues);
+   document.body.style.backgroundColor = ""
+    if (subject === "Chemistry") {
+         document.body.style.backgroundColor = "#EA4335";
+    } else if (subject === "Physics") {
+         document.body.style.backgroundColor = "#FBBC05";
+    } else if (subject === "Maths") {
+         document.body.style.backgroundColor = "#4285F4";
+    } else if (subject === "Biology") {
+         document.body.style.backgroundColor = "#34A853";
+    } else if (subject === "IP") {
+         document.body.style.backgroundColor = "FBBC05";
+    } else {
+         document.body.style.backgroundColor = "EA4335";
+    }
 
     document.getElementById("test-subject-name").innerHTML = subject + " Test";
     document.getElementById("cond1").innerHTML = cond1;
@@ -40,28 +75,32 @@ function loadTestData() {
     for (let index = 8; index < nOfQues + 8; index++) {
       let question = output[index];
       let id = "q" + q;
-      console.log(id);
+     
       document.getElementById(id).innerHTML = question;
       q++;
-    }
-
-    for (let i = 8 + nOfQues; i < arrayLength; i++) {
-      let answer = output[i];
-      console.log(a);
-      document.getElementById(a).innerHTML = answer;
-      a++;
     }
 
     for (let b = 25 - nOfQues; b > 0; b--) {
       let qc = "qc-" + box;
       document.getElementById(qc).style.display = "none";
       box = box - 1;
-      console.log(qc);
+      
     }
+  
+    for (let i = 8 + nOfQues; i < (nOfQues*4)+(8 + nOfQues); i++) {
+      let answer = output[i];
+      console.log(a)
+      document.getElementById(a).innerHTML = answer;
+      a++;
+    }
+    let overlay = document.getElementById("overlay");
+    fade(overlay)
+
   });
 }
 
 function sendTestData() {
+  document.getElementById("loading").style.display="block";
   console.log("Sending Test Data");
   let i = 1;
 
@@ -154,6 +193,9 @@ function sendTestData() {
     if(message === "true"){
       ipcRenderer.send("open-result-window", "result");
       console.log("results coming up")
+    }
+    else{
+      console.log(message)
     }
   });
 }

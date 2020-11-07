@@ -2,12 +2,49 @@ let { PythonShell } = require("python-shell");
 const { ipcRenderer } = require("electron");
 var path = require("path");
 
+
+let overlay = document.getElementById("overlay");
+
+function fade(element) {
+  var op = 1;  // initial opacity
+  var timer = setInterval(function () {
+      if (op <= 0.1){
+          clearInterval(timer);
+          element.style.display = 'none';
+      }
+      element.style.opacity = op;
+      element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+      op -= op * 0.1;
+  }, 50);
+}
+
 function redirect() {
   ipcRenderer.send("open-test-window");
   console.log("ipc message sent");
 }
 
+function signOut() {
+  document.getElementById("loading").style.display="block";
+  console.log("Signing Out");
+  var options = {
+    scriptPath: path.join(__dirname, "python/"),
+    args: ["signOut"],
+  };
+
+  let pyshell = new PythonShell("main.py", options);
+
+  pyshell.on("message", function (message) {
+    if (message === "true") {
+      ipcRenderer.send("open-login-window");
+      console.log("ipc message sent");
+    } else {
+      console.log("error");
+    }
+  });
+}
+
 function setdata1() {
+  document.getElementById("loading").style.display="block";
   console.log("Loading Test/Assignment data");
   var options = {
     scriptPath: path.join(__dirname, "python/"),
@@ -20,13 +57,16 @@ function setdata1() {
     if (message === "true") {
       ipcRenderer.send("open-test-window");
       console.log("ipc message sent");
+      document.getElementById("loading").style.display="none";
     } else {
-      console.log("error");
+      console.log(message);
+      document.getElementById("loading").style.display="none";
     }
   });
 }
 
 function setdata2() {
+  document.getElementById("loading").style.display="block";
   console.log("Loading Test/Assignment data");
   var options = {
     scriptPath: path.join(__dirname, "python/"),
@@ -39,13 +79,17 @@ function setdata2() {
     if (message === "true") {
       ipcRenderer.send("open-test-window");
       console.log("ipc message sent");
+      document.getElementById("loading").style.display="none";
     } else {
       console.log("error");
+      document.getElementById("loading").style.display="none";
     }
   });
 }
 
 function setdata3() {
+  document.getElementById("loading").style.display="block";
+
   console.log("Loading Test/Assignment data");
   var options = {
     scriptPath: path.join(__dirname, "python/"),
@@ -58,13 +102,17 @@ function setdata3() {
     if (message === "true") {
       ipcRenderer.send("open-test-window");
       console.log("ipc message sent");
+      document.getElementById("loading").style.display="none";
     } else {
       console.log("error");
+      document.getElementById("loading").style.display="none";
     }
   });
 }
 
 function setdata4() {
+  document.getElementById("loading").style.display="block";
+
   console.log("Loading Test/Assignment data");
   var options = {
     scriptPath: path.join(__dirname, "python/"),
@@ -77,13 +125,17 @@ function setdata4() {
     if (message === "true") {
       ipcRenderer.send("open-test-window");
       console.log("ipc message sent");
+      document.getElementById("loading").style.display="none";
     } else {
       console.log("error");
+      document.getElementById("loading").style.display="none";
     }
   });
 }
 
 function setdata5() {
+  document.getElementById("loading").style.display="block";
+
   console.log("Loading Test/Assignment data");
   var options = {
     scriptPath: path.join(__dirname, "python/"),
@@ -96,8 +148,10 @@ function setdata5() {
     if (message === "true") {
       ipcRenderer.send("open-test-window");
       console.log("ipc message sent");
+      document.getElementById("loading").style.display="none";
     } else {
       console.log("error");
+      document.getElementById("loading").style.display="none";
     }
   });
 }
@@ -139,7 +193,7 @@ function getHomeInfo() {
     const da5DaysLeft = output[23];
     const ntSubject = output[24];
     const ntTopic = output[25];
-    const ntMarks = output[26];
+    const ntMarks = output[26]+" Marks";
     const ntDate = output[27];
     const card1 = document.getElementById("card1");
     const card2 = document.getElementById("card2");
@@ -288,5 +342,6 @@ function getHomeInfo() {
 
         //}
       }, second);
+    fade(overlay);
   });
 }
