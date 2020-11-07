@@ -1,5 +1,6 @@
 let { PythonShell } = require("python-shell");
 const { ipcRenderer } = require("electron");
+require('v8-compile-cache');
 
 var path = require("path");
 
@@ -66,26 +67,7 @@ function login() {
     }
   });
 }
-function checkLogin() {
-  console.log("checking");
 
-  var options = {
-    scriptPath: path.join(__dirname, "python/"),
-    args: ["isSignedIn"],
-  };
-
-  let pyshell = new PythonShell("main.py", options);
-
-  pyshell.on("message", function (message) {
-    if (message === "true") {
-      ipcRenderer.send("open-home-window", "home");
-      console.log("ipc message sent");
-      console.log("Logedin");
-    } else {
-      console.log("error");
-    }
-  });
-}
 
 function redirect() {
   ipcRenderer.send("open-new-window");

@@ -1,7 +1,9 @@
 let { PythonShell } = require("python-shell");
 const { ipcRenderer } = require("electron");
+
 const fs = require('fs') 
 var path = require("path");
+
 
 
 
@@ -192,6 +194,7 @@ function sendTestData() {
   pyshell.on("message", function (message) {
     if(message === "true"){
       ipcRenderer.send("open-result-window", "result");
+      window.close();
       console.log("results coming up")
     }
     else{

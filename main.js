@@ -11,8 +11,8 @@ let mainWindow;
 function createWindow () {
     // Create the browser window.
     mainWindow = new BrowserWindow({
-        width: 1400,
-        height: 900,
+        width: 600,
+        height: 415,
         frame: false,
         transparent:true,
         backgroundColor: '#FFF',
@@ -24,7 +24,7 @@ function createWindow () {
     });
 
     // and load the index.html of the app.
-    mainWindow.loadFile('index.html');
+    mainWindow.loadFile('splash.html');
 
     
 
@@ -65,7 +65,7 @@ app.on('activate', function () {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 ipcMain.on('open-home-window', (event) => {
-    let win = new BrowserWindow({ width: 1400,
+    let win1 = new BrowserWindow({ width: 1400,
       height: 900,
       frame: false,
       transparent:true,
@@ -75,27 +75,28 @@ ipcMain.on('open-home-window', (event) => {
           enableRemoteModule: true
         }
     })
- win.loadFile(`home.html`);
+ win1.loadFile(`home.html`);
  mainWindow.close();
 });
   
 ipcMain.on('open-test-window', (event) => {
-    let win = new BrowserWindow({ width: 1450,
+    let win2 = new BrowserWindow({ width: 1450,
       height: 900,
       frame: false,
       transparent:true,
+      fullscreen: true,
       backgroundColor: '#FFF',
       webPreferences: {
           nodeIntegration: true,
           enableRemoteModule: true
         }
     })
-win.loadFile(`test.html`);
+win2.loadFile(`test.html`);
     
 });
 
 ipcMain.on('open-result-window', (event) => {
-    let win = new BrowserWindow({ width: 1400,
+    let win3 = new BrowserWindow({ width: 1400,
       height: 900,
       frame: false,
       transparent:true,
@@ -105,7 +106,7 @@ ipcMain.on('open-result-window', (event) => {
           enableRemoteModule: true
         }
     })
-win.loadFile(`result.html`);
+win3.loadFile(`result.html`);
     
 });
 

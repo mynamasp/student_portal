@@ -1,6 +1,8 @@
 let { PythonShell } = require("python-shell");
 const { ipcRenderer } = require("electron");
+
 var path = require("path");
+require('v8-compile-cache');
 
 
 let overlay = document.getElementById("overlay");
@@ -35,8 +37,10 @@ function signOut() {
 
   pyshell.on("message", function (message) {
     if (message === "true") {
+      window.close();
       ipcRenderer.send("open-login-window");
       console.log("ipc message sent");
+      window.close()
     } else {
       console.log("error");
     }
@@ -58,6 +62,7 @@ function setdata1() {
       ipcRenderer.send("open-test-window");
       console.log("ipc message sent");
       document.getElementById("loading").style.display="none";
+      window.close();
     } else {
       console.log(message);
       document.getElementById("loading").style.display="none";
@@ -80,6 +85,7 @@ function setdata2() {
       ipcRenderer.send("open-test-window");
       console.log("ipc message sent");
       document.getElementById("loading").style.display="none";
+      window.close();
     } else {
       console.log("error");
       document.getElementById("loading").style.display="none";
@@ -103,6 +109,7 @@ function setdata3() {
       ipcRenderer.send("open-test-window");
       console.log("ipc message sent");
       document.getElementById("loading").style.display="none";
+      window.close();
     } else {
       console.log("error");
       document.getElementById("loading").style.display="none";
@@ -126,6 +133,7 @@ function setdata4() {
       ipcRenderer.send("open-test-window");
       console.log("ipc message sent");
       document.getElementById("loading").style.display="none";
+      window.close();
     } else {
       console.log("error");
       document.getElementById("loading").style.display="none";
@@ -149,6 +157,7 @@ function setdata5() {
       ipcRenderer.send("open-test-window");
       console.log("ipc message sent");
       document.getElementById("loading").style.display="none";
+      window.close();
     } else {
       console.log("error");
       document.getElementById("loading").style.display="none";

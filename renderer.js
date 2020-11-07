@@ -11,8 +11,9 @@ html global `window` variable */
 document.onreadystatechange = (event) => {
     if (document.readyState == "complete") {
         handleWindowControls();
+        document.body.classList.add('maximized');
+        win.maximize();
 
-        
     }
 };
 
@@ -22,7 +23,11 @@ window.onbeforeunload = (event) => {
     Electron win listeners as the win is not dereferenced unless closed) */
     win.removeAllListeners();
 }
-
+win.maximize();
+document.getElementById("window-title").style.webkitAppRegion = "no-drag";
+win.setResizable(false)
+document.getElementById("max-button").classList.add('maximized');
+console.log("maximised")
 function handleWindowControls() {
     // Make minimise/maximise/restore/close buttons work when they are clicked
     document.getElementById('min-button').addEventListener("click", event => {
@@ -49,6 +54,8 @@ function handleWindowControls() {
         console.log("hi");
 
     });
+
+
 
     // Toggle maximise/restore buttons when maximisation/unmaximisation occurs
     toggleMaxRestoreButtons();

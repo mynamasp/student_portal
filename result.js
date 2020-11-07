@@ -19,6 +19,7 @@ function goHome(){
   document.getElementById("loading").style.display="block";
 
   ipcRenderer.send("go-home", "home");
+  window.close();
   console.log("ipc message sent");
 }
 
