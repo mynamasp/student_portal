@@ -22,101 +22,92 @@ filename = "details.csv"
 fields = []
 rows = []
 
-with open(filename, 'r') as csvfile:
-    # creating a csv reader object
-    csvreader = csv.reader(csvfile)
+if os.path.isfile('details.csv'):
+    with open(filename, 'r') as csvfile:
+        # creating a csv reader object
+        csvreader = csv.reader(csvfile)
 
-    # extracting field names through first row
-    fields = next(csvreader)
+        # extracting field names through first row
+        fields = next(csvreader)
 
-    # extracting each data row one by one
-    for row in csvreader:
-        rows.append(row)
+        # extracting each data row one by one
+        for row in csvreader:
+            rows.append(row)
 
-    #  printing first 5 rows
-a = rows[0]
-username = a[1]
-
-
-query = "select * from studentDetails where username = '"+username+"'"
-mycursor.execute(query)
-output = mycursor.fetchall()
-
-studentDetails = output[0]
+        #  printing first 5 rows
+    a = rows[0]
+    username = a[1]
 
 
+    query = "select * from studentDetails where username = '"+username+"'"
+    mycursor.execute(query)
+    output = mycursor.fetchall()
 
-stName = studentDetails[1]
-stClass = str(studentDetails[2])
-stSection = studentDetails[3]
-stHouse = studentDetails[4]
-
-query = "select * from assignments where class = '"+stClass+stSection+"' ORDER BY `assignments`.`Due_date` ASC"
-mycursor.execute(query)
-output = mycursor.fetchall()
-
-work1 = output[0]
-work2 = output[1]
-work3 = output[2]
-work4 = output[3]
-work5 = output[4]
-
-stWorkCode1 = str(work1[0])
-stWorkCode2 = str(work2[0])
-stWorkCode3 = str(work3[0])
-stWorkCode4 = str(work4[0])
-stWorkCode5 = str(work5[0])
-
-stWorkSubject1 = work1[2]
-stWorkSubject2 = work2[2]
-stWorkSubject3 = work3[2]
-stWorkSubject4 = work4[2]
-stWorkSubject5 = work5[2]
-
-stWorkTopic1 = work1[1]
-stWorkTopic2 = work2[1]
-stWorkTopic3 = work3[1]
-stWorkTopic4 = work4[1]
-stWorkTopic5 = work5[1]
-
-stWorkType1 = work1[3]
-stWorkType2 = work2[3]
-stWorkType3 = work3[3]
-stWorkType4 = work4[3]
-stWorkType5 = work5[3]
-
-today = datetime.date.today()
-
-stWorkDaysleft1 = str((work1[5] - today).days)+ " Days Left"
-stWorkDaysleft2 = str((work2[5] - today).days)+ " Days Left"
-stWorkDaysleft3 = str((work3[5] - today).days)+ " Days Left"
-stWorkDaysleft4 = str((work4[5] - today).days)+ " Days Left"
-stWorkDaysleft5 = str((work5[5] - today).days)+ " Days Left"
-
-query = "select * from assignments where class = '"+stClass+stSection+"' and type = 'Test' ORDER BY `assignments`.`Due_date` ASC"
-mycursor.execute(query)
-output = mycursor.fetchall()
-ntTest = output[0]
+    studentDetails = output[0]
 
 
-ntTestSubject = ntTest[2]
-ntTestTopic = ntTest[1]
-ntTestMarks = str(ntTest[6])
-ntTestDate = str(ntTest[5])
+
+    stName = studentDetails[1]
+    stClass = str(studentDetails[2])
+    stSection = studentDetails[3]
+    stHouse = studentDetails[4]
+
+    query = "select * from assignments where class = '"+stClass+stSection+"' ORDER BY `assignments`.`Due_date` ASC"
+    mycursor.execute(query)
+    output = mycursor.fetchall()
+
+    work1 = output[0]
+    work2 = output[1]
+    work3 = output[2]
+    work4 = output[3]
+    work5 = output[4]
+
+    stWorkCode1 = str(work1[0])
+    stWorkCode2 = str(work2[0])
+    stWorkCode3 = str(work3[0])
+    stWorkCode4 = str(work4[0])
+    stWorkCode5 = str(work5[0])
+
+    stWorkSubject1 = work1[2]
+    stWorkSubject2 = work2[2]
+    stWorkSubject3 = work3[2]
+    stWorkSubject4 = work4[2]
+    stWorkSubject5 = work5[2]
+
+    stWorkTopic1 = work1[1]
+    stWorkTopic2 = work2[1]
+    stWorkTopic3 = work3[1]
+    stWorkTopic4 = work4[1]
+    stWorkTopic5 = work5[1]
+
+    stWorkType1 = work1[3]
+    stWorkType2 = work2[3]
+    stWorkType3 = work3[3]
+    stWorkType4 = work4[3]
+    stWorkType5 = work5[3]
+
+    today = datetime.date.today()
+
+    stWorkDaysleft1 = str((work1[5] - today).days)+ " Days Left"
+    stWorkDaysleft2 = str((work2[5] - today).days)+ " Days Left"
+    stWorkDaysleft3 = str((work3[5] - today).days)+ " Days Left"
+    stWorkDaysleft4 = str((work4[5] - today).days)+ " Days Left"
+    stWorkDaysleft5 = str((work5[5] - today).days)+ " Days Left"
+
+    query = "select * from assignments where class = '"+stClass+stSection+"' and type = 'Test' ORDER BY `assignments`.`Due_date` ASC"
+    mycursor.execute(query)
+    output = mycursor.fetchall()
+    ntTest = output[0]
+
+
+    ntTestSubject = ntTest[2]
+    ntTestTopic = ntTest[1]
+    ntTestMarks = str(ntTest[6])
+    ntTestDate = str(ntTest[5])
 
 input_data = sys.argv[1].split(";")
 
-def listToString(s):  
-    
-    # initialize an empty string 
-    str1 = ""  
-    
-    # traverse in the string   
-    for ele in s:  
-        str1 += ele   
-    
-    # return string   
-    return str1  
+
 
 if input_data[0] == "isSignedIn":
     if os.path.isfile('details.csv'):

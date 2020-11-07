@@ -129,7 +129,26 @@ button:hover {
 iframe {
 	border: none !important;
 }
-
+.flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+}
+/*//////////////////////////////////////////////////////////////////
+[ Loader ]*/
+.spinner2 {
+  width: 75px;
+  height: 75px;
+  display: inline-block;
+  border-width: 2px;
+  border-color: rgba(255, 255, 255, 0.05);
+  border-top-color: rgb(29, 163, 253);
+  animation: spin 1s infinite linear;
+  border-radius: 100%;
+  border-style: solid;
+  position: relative;
+  right: 100px;
+  top: 100px
+}
 
 /*//////////////////////////////////////////////////////////////////
 [ Utility ]*/
