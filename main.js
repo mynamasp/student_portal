@@ -76,7 +76,6 @@ ipcMain.on('open-home-window', (event) => {
         }
     })
  win1.loadFile(`home.html`);
- mainWindow.close();
 });
   
 ipcMain.on('open-test-window', (event) => {

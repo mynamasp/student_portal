@@ -60,10 +60,21 @@ function loadTestData() {
     } else if (subject === "Biology") {
          document.body.style.backgroundColor = "#34A853";
     } else if (subject === "IP") {
-         document.body.style.backgroundColor = "FBBC05";
-    } else {
-         document.body.style.backgroundColor = "EA4335";
+         document.body.style.backgroundColor = "#4285F4";
+    } else if (subject === "English"){
+         document.body.style.backgroundColor = "#FBBC05";
     }
+    
+    buttonColor = document.body.style.backgroundColor;
+    document.getElementById('blob1').style.backgroundColor = buttonColor;
+    document.getElementById('blob2').style.backgroundColor = buttonColor;
+    document.getElementById('blob3').style.backgroundColor = buttonColor;
+    document.getElementById('blob4').style.backgroundColor = buttonColor;
+    console.log("bg:"+buttonColor)
+    document.getElementById('blob1A').style.backgroundColor =  buttonColor;
+    document.getElementById('blob2A').style.backgroundColor =  buttonColor;
+    document.getElementById('blob3A').style.backgroundColor =  buttonColor;
+    document.getElementById('blob4A').style.backgroundColor =  buttonColor;
 
     document.getElementById("test-subject-name").innerHTML = subject + " Test";
     document.getElementById("cond1").innerHTML = cond1;

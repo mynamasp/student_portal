@@ -298,7 +298,7 @@ elif input_data[0] == "loadResultData":
 
     prologue = [testSubject,noOfQues,numOfCorrectAns,noOfQues]
 
-    open1 = open("test.dat", "r") #opens file to read it
+    open1 = open("test.dat", "r",encoding="utf-8") #opens file to read it
     testQues =  eval(open1.read())
 
 

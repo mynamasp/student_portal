@@ -966,34 +966,35 @@
 
     </script>
     <script>
-      function changebutton() {
-        document.getElementById('blob1').style.backgroundColor = '#a52f24';
-        document.getElementById('blob2').style.backgroundColor = '#a52f24';
-        document.getElementById('blob3').style.backgroundColor = '#a52f24';
-        document.getElementById('blob4').style.backgroundColor = '#a52f24';
-        document.getElementById('start-btn').style.borderColor = "#a52f24";
-        document.getElementById("body1").style.overflowY = "overlay";
-        setTimeout(function () {
-          document.getElementById('blob1').style.backgroundColor = '#EA4335';
-          document.getElementById('blob2').style.backgroundColor = '#EA4335';
-          document.getElementById('blob3').style.backgroundColor = '#EA4335';
-          document.getElementById('blob4').style.backgroundColor = '#EA4335';
-        }, 150);
+     var tinycolor = require("tinycolor2");
+      var hexDigits = new Array
+              ("0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"); 
+
+      //Function to convert rgb color to hex format
+      function rgb2hex(rgb) {
+      rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+      return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
       }
 
+      function hex(x) {
+        return isNaN(x) ? "00" : hexDigits[(x - x % 16) / 16] + hexDigits[x % 16];
+      }
+
+
       function changebutton2() {
-        document.getElementById('blob1A').style.backgroundColor = '#a52f24';
-        document.getElementById('blob2A').style.backgroundColor = '#a52f24';
-        document.getElementById('blob3A').style.backgroundColor = '#a52f24';
-        document.getElementById('blob4A').style.backgroundColor = '#a52f24';
-        document.getElementById('start-btnA').style.borderColor = "#a52f24";
+        buttonColor = rgb2hex(document.body.style.backgroundColor);
+        document.getElementById('blob1A').style.backgroundColor = tinycolor(buttonColor).darken(25).toString();
+        document.getElementById('blob2A').style.backgroundColor = tinycolor(buttonColor).darken(25).toString();
+        document.getElementById('blob3A').style.backgroundColor = tinycolor(buttonColor).darken(25).toString();
+        document.getElementById('blob4A').style.backgroundColor = tinycolor(buttonColor).darken(25).toString();
+        document.getElementById('start-btnA').style.borderColor = tinycolor(buttonColor).darken(25).toString();
        
         setTimeout(function () {
-         
-          document.getElementById('blob1A').style.backgroundColor = '#EA4335';
-          document.getElementById('blob2A').style.backgroundColor = '#EA4335';
-          document.getElementById('blob3A').style.backgroundColor = '#EA4335';
-          document.getElementById('blob4A').style.backgroundColor = '#EA4335';
+          buttonColor = document.body.style.backgroundColor;
+          document.getElementById('blob1A').style.backgroundColor =  buttonColor;
+          document.getElementById('blob2A').style.backgroundColor =  buttonColor;
+          document.getElementById('blob3A').style.backgroundColor =  buttonColor;
+          document.getElementById('blob4A').style.backgroundColor =  buttonColor;
         }, 150);
       }
 

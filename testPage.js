@@ -13,6 +13,7 @@ html global `window` variable */
 document.onreadystatechange = (event) => {
     if (document.readyState == "complete") {
         win.setFullScreen(true);
+        win.setResizable(false)
         
     }
     win.on('blur', () => {

@@ -55,11 +55,19 @@ function loadResultData() {
     } else if (subject === "Biology") {
          document.body.style.backgroundColor = "#34A853";
     } else if (subject === "IP") {
-         document.body.style.backgroundColor = "FBBC05";
-    } else {
-         document.body.style.backgroundColor = "EA4335";
+         document.body.style.backgroundColor = "#4285F4";
+    } else if (subject === "English"){
+         document.body.style.backgroundColor = "#FBBC05";
     }
-
+    
+    buttonColor = document.body.style.backgroundColor;
+    document.getElementById('blob1A').style.backgroundColor = buttonColor;
+    document.getElementById('blob2A').style.backgroundColor = buttonColor;
+    document.getElementById('blob3A').style.backgroundColor = buttonColor;
+    document.getElementById('blob4A').style.backgroundColor = buttonColor;
+    console.log("bg:"+buttonColor)
+    
+    
     //this value must be tweaked after backend
     let offset1 = 4;
     let offset2 = (nOfQues*4)+( offset1 + nOfQues);
@@ -102,11 +110,13 @@ function loadResultData() {
       let option =String(output[c]);
       console.log(option)
       let element  = document.getElementById(option);
+      if(option !== "undefined"){
       element.checked = true;
       let color =document.getElementById(output[c]+"b");
       console.log(output[c]+"b")
       color.classList.remove("inputGroup");
       color.classList.add("inputGroup-correct")
+      }
     }
 
     for (let b = 25 - nOfQues; b > 0; b--) {

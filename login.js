@@ -34,6 +34,7 @@ function login() {
       console.log("ipc message sent");
       document.getElementById("userID").value = "";
       document.getElementById("password").value = "";
+      window.close();
       console.log("loginedin");
       document.getElementById("loginForm").style.visibility = "visible";
       document.getElementById("loader").style.display = "none";

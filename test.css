@@ -79,7 +79,8 @@
 }
 
 #blur-overlay{
-  will-change: auto;
+  will-change: filter;
+  transform: translate3d;
 }
 
 .subject-name {
