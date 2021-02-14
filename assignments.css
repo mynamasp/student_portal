@@ -1,0 +1,48 @@
+:root{
+    font-size: 16px;
+
+}
+
+.subject-name{
+    text-align: center;
+    font-size: 6rem;
+
+}
+
+.card {
+    box-shadow: 0 3px 10px 0 rgb(80, 80, 80);
+    color: grey;
+    transition: 0.3s;
+    overflow: hidden;
+    display: block;
+    width: 60vw;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    background-color: rgba(250, 250, 250);
+    margin-top: 50px;
+    height: 220px;
+  }
+
+.topic {
+    font-size: 2rem;
+    padding-top: 6%;
+    
+}
+
+.details {
+      font-size: 2rem;
+      padding-left: 20px;
+      padding-top: 20px;
+      line-height: 1.6;
+  }
+.flex-container {
+    display: flex;
+    height: 90%;
+
+  }
+.flex-container > div {
+    margin: 10px;
+    width: 50%;
+  
+}

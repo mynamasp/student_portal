@@ -29,7 +29,8 @@ function signOut() {
   document.getElementById("loading").style.display="block";
   console.log("Signing Out");
   var options = {
-    scriptPath: path.join(__dirname, "python/"),
+    pythonPath: 'C:\\Users\\Prasanna\\AppData\\Local\\Programs\\Python\\Python37\\python',
+    scriptPath: path.join(__dirname, "/../python/"),
     args: ["signOut"],
   };
 
@@ -51,7 +52,8 @@ function setdata1() {
   document.getElementById("loading").style.display="block";
   console.log("Loading Test/Assignment data");
   var options = {
-    scriptPath: path.join(__dirname, "python/"),
+    pythonPath: 'C:\\Users\\Prasanna\\AppData\\Local\\Programs\\Python\\Python37\\python',
+    scriptPath: path.join(__dirname, "/../python/"),
     args: ["loaddata1"],
   };
 
@@ -74,7 +76,8 @@ function setdata2() {
   document.getElementById("loading").style.display="block";
   console.log("Loading Test/Assignment data");
   var options = {
-    scriptPath: path.join(__dirname, "python/"),
+    pythonPath: 'C:\\Users\\Prasanna\\AppData\\Local\\Programs\\Python\\Python37\\python',
+    scriptPath: path.join(__dirname, "/../python/"),
     args: ["loaddata2"],
   };
 
@@ -98,7 +101,8 @@ function setdata3() {
 
   console.log("Loading Test/Assignment data");
   var options = {
-    scriptPath: path.join(__dirname, "python/"),
+    pythonPath: 'C:\\Users\\Prasanna\\AppData\\Local\\Programs\\Python\\Python37\\python',
+    scriptPath: path.join(__dirname, "/../python/"),
     args: ["loaddata3"],
   };
 
@@ -122,7 +126,8 @@ function setdata4() {
 
   console.log("Loading Test/Assignment data");
   var options = {
-    scriptPath: path.join(__dirname, "python/"),
+    pythonPath: 'C:\\Users\\Prasanna\\AppData\\Local\\Programs\\Python\\Python37\\python',
+    scriptPath: path.join(__dirname, "/../python/"),
     args: ["loaddata4"],
   };
 
@@ -146,7 +151,8 @@ function setdata5() {
 
   console.log("Loading Test/Assignment data");
   var options = {
-    scriptPath: path.join(__dirname, "python/"),
+    pythonPath: 'C:\\Users\\Prasanna\\AppData\\Local\\Programs\\Python\\Python37\\python',
+    scriptPath: path.join(__dirname, "/../python/"),
     args: ["loaddata5"],
   };
 
@@ -168,6 +174,7 @@ function setdata5() {
 function getHomeInfo() {
   console.log("Getting Home Page Info");
   var options = {
+    pythonPath: 'C:\\Users\\Prasanna\\AppData\\Local\\Programs\\Python\\Python37\\python',
     scriptPath: path.join(__dirname, "python/"),
     args: ["getHomeInfo"],
   };
@@ -321,7 +328,7 @@ function getHomeInfo() {
     document.getElementById("welcome-msg").innerHTML =
       "Welcome Back " + studentName;
     document.getElementById("class").innerHTML =
-      studentClass + " " + studentSection;
+      studentClass + "-" + studentSection;
     console.log(output);
 
     const second = 1000,

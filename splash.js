@@ -8,6 +8,7 @@ function checkLogin() {
     console.log("checking");
   
     var options = {
+      pythonPath: 'C:\\Users\\Prasanna\\AppData\\Local\\Programs\\Python\\Python37\\python',
       scriptPath: path.join(__dirname, "python/"),
       args: ["isSignedIn"],
     };
@@ -29,7 +30,7 @@ function checkLogin() {
       }
       
       else {
-        console.log("error");
+        console.log(message);
       }
     });
   }

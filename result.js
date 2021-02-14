@@ -26,7 +26,8 @@ function goHome(){
 function loadResultData() {
   console.log("Loading Test data");
   var options = {
-    scriptPath: path.join(__dirname, "python/"),
+    pythonPath: 'C:\\Users\\Prasanna\\AppData\\Local\\Programs\\Python\\Python37\\python',
+    scriptPath: path.join(__dirname, "/../python/"),
     args: ["loadResultData"],
   };
   let pyshell = new PythonShell("main.py", options);

@@ -3,6 +3,9 @@
   "version": "1.1.0",
   "description": "an App to write Test and complete aassignment for students",
   "main": "main.js",
+  "plugins": [
+    "@babel/plugin-syntax-dynamic-import"
+  ],
   "scripts": {
     "start": "electron .",
     "pack:osx": "electron-packager . Student_Portal --out=dist/osx --platform=darwin --arch=x64 --icon=images/icon.icns ",
@@ -20,6 +23,7 @@
   "author": "S.Prasanna",
   "license": "CC0-1.0",
   "devDependencies": {
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "electron": "^10.1.2",
     "electron-installer-codesign": "^0.6.0",
     "webpack": "^5.4.0",
@@ -28,9 +32,13 @@
   "dependencies": {
     "@fullcalendar/core": "^5.3.1",
     "@fullcalendar/daygrid": "^5.3.2",
+    "@material-ui/core": "^4.11.1",
     "asar": "^3.0.3",
     "electron-localshortcut": "^3.2.1",
     "python-shell": "^2.0.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-swipeable-views": "^0.12.4",
     "tinycolor2": "^1.4.2",
     "v8-compile-cache": "^2.2.0"
   }

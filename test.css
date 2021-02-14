@@ -141,7 +141,7 @@
   transition: 0.3s;
   font-family: 'Poppins', sans-serif;  color: #fff;
 
-  color: rgb(48, 48, 48);
+  
   width: 75%;
   margin-left: auto;
   margin-right: auto;
@@ -151,7 +151,22 @@
   margin-top: 50px;
   height: 100px;
   box-align: center;
+  font-size: 2em;
 }
+
+.testInfo {
+  color: rgb(48, 48, 48);
+  font-weight: normal;
+  font-size: 1.25em;
+
+}
+@media (max-width:1450px){
+  .testInfo {
+    font-size: 1em;
+    
+  }
+}
+ 
 .flex-container {
   display: flex;
   flex-wrap: nowrap;
@@ -162,6 +177,8 @@
   margin: 10px;
   text-align: center;
 }
+
+
 
 .buttons {
   margin-top: 50px;
@@ -317,7 +334,15 @@
 .blur {
   -webkit-filter: blur(5px);
   filter: blur(5px);
+  will-change: auto;
 }
+
+.question {
+  grid-area: myArea;
+  font-size: 28px;
+  color: #2b2b2b;
+}
+
 .inputGroup {
   background-color: #fff;
   border-radius: 15px;
@@ -329,9 +354,11 @@
   margin-right: auto;
   box-shadow: 0px 0px 10px #cacaca;
 }
-.inputGroup label {
-  font-family: 'Poppins', sans-serif;  color: #fff;
 
+
+.inputGroup label {
+  font-family: 'Poppins', sans-serif;  
+  padding-right: 60px;
   padding: 12px 30px;
   border-radius: 15px;
   width: 100%;
@@ -342,10 +369,29 @@
   cursor: pointer;
   position: relative;
   z-index: 2;
-  -webkit-transition: color 200ms ease-in;
+  
   transition: color 200ms ease-in;
   overflow: hidden;
 }
+
+@media (max-width:1450px){
+  .inputGroup {
+  
+    width: 450px;
+  }
+  .inputGroup label {
+  
+    font-size: 1.15em;
+   
+  }
+  .question {
+    
+    font-size: 20px;
+    
+  }
+  
+}
+
 .inputGroup label:before {
   width: 10px;
   height: 10px;
@@ -367,6 +413,7 @@
   width: 32px;
   height: 32px;
   content: "";
+  display: inline;
   border: 2px solid #d1d7dc;
   background-color: #fff;
   background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.414 11L4 12.414l5.414 5.414L20.828 6.414 19.414 5l-10 10z' fill='%23fff' fill-rule='nonzero'/%3E%3C/svg%3E ");
@@ -412,11 +459,7 @@
   visibility: hidden;
 }
 
-.question {
-  grid-area: myArea;
-  font-size: 28px;
-  color: #2b2b2b;
-}
+
 
 .grid-container {
   display: grid;

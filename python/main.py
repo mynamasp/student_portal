@@ -94,7 +94,7 @@ if os.path.isfile('details.csv'):
     stWorkDaysleft4 = str((work4[5] - today).days)+ " Days Left"
     stWorkDaysleft5 = str((work5[5] - today).days)+ " Days Left"
 
-    query = "select * from assignments where class = '"+stClass+stSection+"' and type = 'Test' ORDER BY `assignments`.`Due_date` ASC"
+    query = "select * from assignments where class = '"+stClass+stSection+"' and type = 'Test' ORDER BY 'Due_date'"
     mycursor.execute(query)
     output = mycursor.fetchall()
     ntTest = output[0]

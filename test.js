@@ -24,7 +24,8 @@ function fade(element) {
 function loadTestData() {
   console.log("Loading Test data");
   var options = {
-    scriptPath: path.join(__dirname, "python/"),
+    pythonPath: 'C:\\Users\\Prasanna\\AppData\\Local\\Programs\\Python\\Python37\\python',
+    scriptPath: path.join(__dirname, "/../python/"),
     args: ["loadTestData"],
   };
   let pyshell = new PythonShell("main.py", options);
@@ -196,7 +197,9 @@ function sendTestData() {
   console.log(answers);
 
   var options = {
-    scriptPath: path.join(__dirname, "python/"),
+    pythonPath: 'C:\\Users\\Prasanna\\AppData\\Local\\Programs\\Python\\Python37\\python',
+
+    scriptPath: path.join(__dirname, "/../python/"),
     args: ["testAnswers;" + answers],
   };
 

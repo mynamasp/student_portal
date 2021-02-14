@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
 :root {
   font-size: 16px;
   font-family: 'Poppins', sans-serif;
@@ -85,6 +85,7 @@ main {
 .link-text {
   display: none;
   margin-left: 1rem;
+  font-family: 'Poppins', sans-serif;
 }
 
 .nav-link svg {
@@ -133,6 +134,99 @@ main {
 
 .navbar:hover .logo svg {
   transform: rotate(-180deg);
+}
+
+
+
+
+.sub-nav li a {
+	display: block;
+	background: #2d2d38;
+  padding: 10px 15px;
+  font-family: 'Poppins', sans-serif;
+  color: #b6b6b6;
+  font-weight: 300;
+	text-decoration: none;
+	-webkit-transition: 0.2s linear;
+	transition: 0.2s linear;
+}
+.sub-nav li a:hover {
+	background: #f8f8f8;
+	color: #515151;
+}
+.sub-nav li a .fa {
+	width: 16px;
+	text-align: center;
+	margin-right: 5px;
+	float:right;
+}
+.sub-nav ul {
+	background-color:#ebebeb;
+}
+.sub-nav li ul li a {
+	background: #f8f8f8;
+	border-left: 4px solid transparent;
+	padding: 10px 20px;
+}
+.sub-nav li ul li a:hover {
+	background: #ebebeb;
+	border-left: 4px solid #3498db;
+}
+
+.caret-dropdown {
+  cursor: pointer;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  margin-left: 30px;
+  display: inline-block;
+  height: 12px;
+  margin-top: 2px;
+  text-align: left;
+  -webkit-transition: .4s ease;
+  transition: .4s ease;
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
+  width: 15px;
+}
+
+
+.caret-dropdown:after, .caret-dropdown:before {
+  background-color: transparent;
+  border-bottom: 9px solid rgb(119, 117, 117);
+  box-sizing: content-box;
+  content: '';
+  display: inline-block;
+  height: 8px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: .4s ease;
+  transition: .4s ease;
+  width: 1px;
+}
+.caret-dropdown:before {
+  -webkit-transform: rotate(-135deg);
+          transform: rotate(-135deg);
+}
+.caret-dropdown:after {
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
+}
+
+.caret-dropdown.active {
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
+  -webkit-transform: translate(0, -6px);
+          transform: translate(0, -6px);
+}
+.caret-dropdown.active:before {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.caret-dropdown.active:after {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 
 /* Small screens */

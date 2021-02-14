@@ -22,11 +22,12 @@ function login() {
   console.log(data_out);
 
   var options = {
+    pythonPath: 'C:\\Users\\Prasanna\\AppData\\Local\\Programs\\Python\\Python37\\python',
     scriptPath: path.join(__dirname, "python/"),
     args: [data_out],
   };
 
-  let pyshell = new PythonShell("main.py", options);
+  let pyshell = new PythonShell("main.pyc", options);
 
   pyshell.on("message", function (message) {
     if (message === "true") {

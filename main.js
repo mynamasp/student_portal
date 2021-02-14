@@ -25,7 +25,7 @@ function createWindow () {
 
     // and load the index.html of the app.
     mainWindow.loadFile('splash.html');
-
+   
     
 
     // Open the DevTools.
@@ -76,6 +76,7 @@ ipcMain.on('open-home-window', (event) => {
         }
     })
  win1.loadFile(`home.html`);
+
 });
   
 ipcMain.on('open-test-window', (event) => {
