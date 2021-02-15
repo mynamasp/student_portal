@@ -105,6 +105,23 @@ if os.path.isfile('details.csv'):
     ntTestMarks = str(ntTest[6])
     ntTestDate = str(ntTest[5])
 
+    query = "select * from announcements"
+    mycursor.execute(query)
+    output = mycursor.fetchall()
+    anoun1title = output[0][0]
+    anoun1body = output[0][1]
+    anoun2title = output[1][0]
+    anoun2body = output[1][1]
+    anoun3title = output[2][0]
+    anoun3body = output[2][1]
+    anoun4title = output[3][0]
+    anoun4body = output[3][1]
+    anoun5title = output[4][0]
+    anoun5body = output[4][1]
+ 
+
+
+
 input_data = sys.argv[1].split(";")
 
 
@@ -136,7 +153,7 @@ elif input_data[0] == "logIn":
 
 elif input_data[0] == "getHomeInfo":
 
-    javascriptOut =stName+";"+stClass+";"+stSection+";"+stHouse+";"+stWorkSubject1+";"+stWorkTopic1+";"+stWorkType1+";"+stWorkDaysleft1+";"+stWorkSubject2+";"+stWorkTopic2+";"+stWorkType2+";"+stWorkDaysleft2+";"+stWorkSubject3+";"+stWorkTopic3+";"+stWorkType3+";"+stWorkDaysleft3+";"+stWorkSubject4+";"+stWorkTopic4+";"+stWorkType4+";"+stWorkDaysleft4+";"+stWorkSubject5+";"+stWorkTopic5+";"+stWorkType5+";"+stWorkDaysleft5+";"+ntTestSubject+";"+ntTestTopic+";"+ntTestMarks+";"+ntTestDate
+    javascriptOut =stName+";"+stClass+";"+stSection+";"+stHouse+";"+stWorkSubject1+";"+stWorkTopic1+";"+stWorkType1+";"+stWorkDaysleft1+";"+stWorkSubject2+";"+stWorkTopic2+";"+stWorkType2+";"+stWorkDaysleft2+";"+stWorkSubject3+";"+stWorkTopic3+";"+stWorkType3+";"+stWorkDaysleft3+";"+stWorkSubject4+";"+stWorkTopic4+";"+stWorkType4+";"+stWorkDaysleft4+";"+stWorkSubject5+";"+stWorkTopic5+";"+stWorkType5+";"+stWorkDaysleft5+";"+ntTestSubject+";"+ntTestTopic+";"+ntTestMarks+";"+ntTestDate+";"+anoun1title+";"+anoun1body+";"+anoun2title+";"+anoun2body+";"+anoun3title+";"+anoun3body+";"+anoun4title+";"+anoun4body+";"+anoun5title+";"+anoun5body
 
     print(javascriptOut)
 

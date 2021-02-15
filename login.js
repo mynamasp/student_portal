@@ -22,7 +22,7 @@ function login() {
   console.log(data_out);
 
   var options = {
-    pythonPath: 'C:\\Users\\Prasanna\\AppData\\Local\\Programs\\Python\\Python37\\python',
+    pythonPath: 'python',
     scriptPath: path.join(__dirname, "python/"),
     args: [data_out],
   };
