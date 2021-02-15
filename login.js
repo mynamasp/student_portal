@@ -27,7 +27,7 @@ function login() {
     args: [data_out],
   };
 
-  let pyshell = new PythonShell("main.pyc", options);
+  let pyshell = new PythonShell("main.py", options);
 
   pyshell.on("message", function (message) {
     if (message === "true") {
