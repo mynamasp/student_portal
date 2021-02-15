@@ -1,3 +1,4 @@
+#Importing modules
 import sys
 import pandas as pd
 import mysql.connector as msqlcon
@@ -5,9 +6,10 @@ import os
 import csv
 import datetime
 
-sys.stdout.reconfigure(encoding='utf-8')
+#Setting encoding type for IPC
+sys.stdout.reconfigure(encoding='utf-8') 
 
-
+#Connecting to MySQL database
 db = msqlcon.connect(host = "remotemysql.com",
         user = "JtURNtxFwv",
         password = "VNmsknSD7o",
@@ -15,30 +17,32 @@ db = msqlcon.connect(host = "remotemysql.com",
 
 mycursor = db.cursor()
 studentDetails = []
-    # csv file name
+# Csv file name
 filename = "details.csv"
 
-    # initializing the titles and rows list
+# Initializing the titles and rows list
 fields = []
 rows = []
 
+#Checking if a csv file containing login credentials already exists
 if os.path.isfile('details.csv'):
     with open(filename, 'r') as csvfile:
-        # creating a csv reader object
+        # Creating a csv reader object
         csvreader = csv.reader(csvfile)
 
-        # extracting field names through first row
+        # Extracting field names through first row
         fields = next(csvreader)
 
-        # extracting each data row one by one
+        # Extracting each data row one by one
         for row in csvreader:
             rows.append(row)
 
-        #  printing first 5 rows
+    
+    #Importing user credentials to python
     a = rows[0]
     username = a[1]
 
-
+    #Quering database for student details
     query = "select * from studentDetails where username = '"+username+"'"
     mycursor.execute(query)
     output = mycursor.fetchall()
@@ -46,16 +50,18 @@ if os.path.isfile('details.csv'):
     studentDetails = output[0]
 
 
-
+    #Importing studdent details to python
     stName = studentDetails[1]
     stClass = str(studentDetails[2])
     stSection = studentDetails[3]
     stHouse = studentDetails[4]
 
+    #Querying database for assingnments assigned to students
     query = "select * from assignments where class = '"+stClass+stSection+"' ORDER BY `assignments`.`Due_date` ASC"
     mycursor.execute(query)
     output = mycursor.fetchall()
 
+    #Importing nect 5 upcoming tests/assignments
     work1 = output[0]
     work2 = output[1]
     work3 = output[2]
@@ -94,20 +100,25 @@ if os.path.isfile('details.csv'):
     stWorkDaysleft4 = str((work4[5] - today).days)+ " Days Left"
     stWorkDaysleft5 = str((work5[5] - today).days)+ " Days Left"
 
+    #Quering database for nearest upcoming test 
     query = "select * from assignments where class = '"+stClass+stSection+"' and type = 'Test' ORDER BY 'Due_date'"
     mycursor.execute(query)
     output = mycursor.fetchall()
     ntTest = output[0]
 
 
+    #Importing nearest test details to python
     ntTestSubject = ntTest[2]
     ntTestTopic = ntTest[1]
     ntTestMarks = str(ntTest[6])
     ntTestDate = str(ntTest[5])
 
+    #Quering database for announcements
     query = "select * from announcements"
     mycursor.execute(query)
     output = mycursor.fetchall()
+    
+    #Importing announcement details into python
     anoun1title = output[0][0]
     anoun1body = output[0][1]
     anoun2title = output[1][0]
@@ -122,19 +133,23 @@ if os.path.isfile('details.csv'):
 
 
 
+#Reading command sent via IPC from JavaScript
 input_data = sys.argv[1].split(";")
 
 
-
+#Checking if the user had already signed in
 if input_data[0] == "isSignedIn":
+    #Checking if the file already exists
     if os.path.isfile('details.csv'):
         print("true")
     else:
         print("false")
 
+#Verifying user login credentials
 elif input_data[0] == "logIn":
     userID = input_data[1]
     password = input_data[2]
+    #Authenticating user input with the database 
     QUERY = "SELECT * FROM username WHERE user = '"+userID+"' and password = '"+password+"'"
     
     mycursor.execute(QUERY)
@@ -142,15 +157,18 @@ elif input_data[0] == "logIn":
     for x in mycursor:
         value.append(x)
 
+    #Checking if the number of rows returned is non-zero
     if len(value) > 0:
         print("true")
         d = "SELECT * FROM username WHERE user= '"+userID+"'"
         df = pd.read_sql(d, db)
+        #Storing values returned from database to a local csv file
         df.to_csv('details.csv')
 
     else:
         print("false")
 
+#Sending homepage details to JavaScript 
 elif input_data[0] == "getHomeInfo":
 
     javascriptOut =stName+";"+stClass+";"+stSection+";"+stHouse+";"+stWorkSubject1+";"+stWorkTopic1+";"+stWorkType1+";"+stWorkDaysleft1+";"+stWorkSubject2+";"+stWorkTopic2+";"+stWorkType2+";"+stWorkDaysleft2+";"+stWorkSubject3+";"+stWorkTopic3+";"+stWorkType3+";"+stWorkDaysleft3+";"+stWorkSubject4+";"+stWorkTopic4+";"+stWorkType4+";"+stWorkDaysleft4+";"+stWorkSubject5+";"+stWorkTopic5+";"+stWorkType5+";"+stWorkDaysleft5+";"+ntTestSubject+";"+ntTestTopic+";"+ntTestMarks+";"+ntTestDate+";"+anoun1title+";"+anoun1body+";"+anoun2title+";"+anoun2body+";"+anoun3title+";"+anoun3body+";"+anoun4title+";"+anoun4body+";"+anoun5title+";"+anoun5body
