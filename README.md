@@ -26,8 +26,7 @@ a backend connected to a MySQL cloud database in AWS with Javascript driver code
 
 ## Test Page (Locked)
 
-![image](https://user-images.githubusercontent.com/57226457/171978972-66d9055d-2585-45ee-b8e0-fae6f17ab44b.png)
-
+![image](https://user-images.githubusercontent.com/57226457/171979046-4f23c3bd-3970-424e-b893-6a21c9f1ae02.png)
 
 ## Test Page (Unlocked)
 
